@@ -7,6 +7,7 @@
 //
 
 #include "LettersBag.h"
+#include <time.h>
 
 LettersBag::LettersBag(){
     srand((unsigned int)time(0));

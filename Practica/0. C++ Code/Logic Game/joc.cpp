@@ -1,5 +1,5 @@
 #include "joc.h"
-#include "ScrabbleGame.h"
+#include "./Scrabble/ScrabbleGame.h"
 #include "../Graphic Lib/NFont/NFont.h"
 
 

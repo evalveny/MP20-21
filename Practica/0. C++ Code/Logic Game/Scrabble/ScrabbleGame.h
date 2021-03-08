@@ -15,7 +15,7 @@
 #include "Player.h"
 #include "LettersBag.h"
 #include "Button.h"
-#include "joc.h"
+#include "../joc.h"
 
 const int NUM_PLAYERS = 3;
 

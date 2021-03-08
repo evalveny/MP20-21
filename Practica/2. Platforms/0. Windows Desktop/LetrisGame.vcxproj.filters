@@ -34,41 +34,38 @@
     <ClCompile Include="..\..\0. C++ Code\Logic Game\joc.cpp">
       <Filter>Logic Game</Filter>
     </ClCompile>
-    <ClCompile Include="..\..\0. C++ Code\Logic Game\LetrisGame.cpp">
-      <Filter>Logic Game</Filter>
-    </ClCompile>
     <ClCompile Include="..\..\0. C++ Code\Logic Game\main.cpp">
       <Filter>Logic Game</Filter>
     </ClCompile>
-    <ClCompile Include="..\..\0. C++ Code\Logic Game\UI Elements\Button.cpp">
-      <Filter>Logic Game\UI Elements</Filter>
+    <ClCompile Include="..\..\0. C++ Code\Logic Game\Scrabble\Board.cpp">
+      <Filter>Logic Game\Scrabble</Filter>
     </ClCompile>
-    <ClCompile Include="..\..\0. C++ Code\Logic Game\UI Elements\RadioButton.cpp">
-      <Filter>Logic Game\UI Elements</Filter>
+    <ClCompile Include="..\..\0. C++ Code\Logic Game\Scrabble\Button.cpp">
+      <Filter>Logic Game\Scrabble</Filter>
     </ClCompile>
-    <ClCompile Include="..\..\0. C++ Code\Logic Game\Game States\Game\Game.cpp">
-      <Filter>Logic Game\Game States\Game</Filter>
+    <ClCompile Include="..\..\0. C++ Code\Logic Game\Scrabble\Cell.cpp">
+      <Filter>Logic Game\Scrabble</Filter>
     </ClCompile>
-    <ClCompile Include="..\..\0. C++ Code\Logic Game\Game States\Game\Board.cpp">
-      <Filter>Logic Game\Game States\Game</Filter>
+    <ClCompile Include="..\..\0. C++ Code\Logic Game\Scrabble\Dictionary.cpp">
+      <Filter>Logic Game\Scrabble</Filter>
     </ClCompile>
-    <ClCompile Include="..\..\0. C++ Code\Logic Game\Game States\Game\Tile.cpp">
-      <Filter>Logic Game\Game States\Game</Filter>
+    <ClCompile Include="..\..\0. C++ Code\Logic Game\Scrabble\LettersBag.cpp">
+      <Filter>Logic Game\Scrabble</Filter>
     </ClCompile>
-    <ClCompile Include="..\..\0. C++ Code\Logic Game\Game States\Game\WordMaker.cpp">
-      <Filter>Logic Game\Game States\Game</Filter>
+    <ClCompile Include="..\..\0. C++ Code\Logic Game\Scrabble\Player.cpp">
+      <Filter>Logic Game\Scrabble</Filter>
     </ClCompile>
-    <ClCompile Include="..\..\0. C++ Code\Logic Game\Game States\TileRenderer.cpp">
-      <Filter>Logic Game\Game States</Filter>
+    <ClCompile Include="..\..\0. C++ Code\Logic Game\Scrabble\PlayerTile.cpp">
+      <Filter>Logic Game\Scrabble</Filter>
     </ClCompile>
-    <ClCompile Include="..\..\0. C++ Code\Logic Game\Game States\Dictionary.cpp">
-      <Filter>Logic Game\Game States</Filter>
+    <ClCompile Include="..\..\0. C++ Code\Logic Game\Scrabble\ScrabbleGame.cpp">
+      <Filter>Logic Game\Scrabble</Filter>
     </ClCompile>
-    <ClCompile Include="..\..\0. C++ Code\Logic Game\Game States\Game Over\GameOver.cpp">
-      <Filter>Logic Game\Game States\Game Over</Filter>
+    <ClCompile Include="..\..\0. C++ Code\Logic Game\Scrabble\Tile.cpp">
+      <Filter>Logic Game\Scrabble</Filter>
     </ClCompile>
-    <ClCompile Include="..\..\0. C++ Code\Logic Game\Game States\Main Menu\MainMenu.cpp">
-      <Filter>Logic Game\Game States\Main Menu</Filter>
+    <ClCompile Include="..\..\0. C++ Code\Logic Game\Scrabble\TileRenderer.cpp">
+      <Filter>Logic Game\Scrabble</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -117,38 +114,35 @@
     <ClInclude Include="..\..\0. C++ Code\Logic Game\joc.h">
       <Filter>Logic Game</Filter>
     </ClInclude>
-    <ClInclude Include="..\..\0. C++ Code\Logic Game\LetrisGame.h">
-      <Filter>Logic Game</Filter>
+    <ClInclude Include="..\..\0. C++ Code\Logic Game\Scrabble\Board.h">
+      <Filter>Logic Game\Scrabble</Filter>
     </ClInclude>
-    <ClInclude Include="..\..\0. C++ Code\Logic Game\UI Elements\Button.h">
-      <Filter>Logic Game\UI Elements</Filter>
+    <ClInclude Include="..\..\0. C++ Code\Logic Game\Scrabble\Button.h">
+      <Filter>Logic Game\Scrabble</Filter>
     </ClInclude>
-    <ClInclude Include="..\..\0. C++ Code\Logic Game\UI Elements\RadioButton.h">
-      <Filter>Logic Game\UI Elements</Filter>
+    <ClInclude Include="..\..\0. C++ Code\Logic Game\Scrabble\Cell.h">
+      <Filter>Logic Game\Scrabble</Filter>
     </ClInclude>
-    <ClInclude Include="..\..\0. C++ Code\Logic Game\Game States\Game\Game.h">
-      <Filter>Logic Game\Game States\Game</Filter>
+    <ClInclude Include="..\..\0. C++ Code\Logic Game\Scrabble\Dictionary.h">
+      <Filter>Logic Game\Scrabble</Filter>
     </ClInclude>
-    <ClInclude Include="..\..\0. C++ Code\Logic Game\Game States\Game\Board.h">
-      <Filter>Logic Game\Game States\Game</Filter>
+    <ClInclude Include="..\..\0. C++ Code\Logic Game\Scrabble\LettersBag.h">
+      <Filter>Logic Game\Scrabble</Filter>
     </ClInclude>
-    <ClInclude Include="..\..\0. C++ Code\Logic Game\Game States\Game\Tile.h">
-      <Filter>Logic Game\Game States\Game</Filter>
+    <ClInclude Include="..\..\0. C++ Code\Logic Game\Scrabble\Player.h">
+      <Filter>Logic Game\Scrabble</Filter>
     </ClInclude>
-    <ClInclude Include="..\..\0. C++ Code\Logic Game\Game States\Game\WordMaker.h">
-      <Filter>Logic Game\Game States\Game</Filter>
+    <ClInclude Include="..\..\0. C++ Code\Logic Game\Scrabble\PlayerTile.h">
+      <Filter>Logic Game\Scrabble</Filter>
     </ClInclude>
-    <ClInclude Include="..\..\0. C++ Code\Logic Game\Game States\TileRenderer.h">
-      <Filter>Logic Game\Game States</Filter>
+    <ClInclude Include="..\..\0. C++ Code\Logic Game\Scrabble\ScrabbleGame.h">
+      <Filter>Logic Game\Scrabble</Filter>
     </ClInclude>
-    <ClInclude Include="..\..\0. C++ Code\Logic Game\Game States\Dictionary.h">
-      <Filter>Logic Game\Game States</Filter>
+    <ClInclude Include="..\..\0. C++ Code\Logic Game\Scrabble\Tile.h">
+      <Filter>Logic Game\Scrabble</Filter>
     </ClInclude>
-    <ClInclude Include="..\..\0. C++ Code\Logic Game\Game States\Game Over\GameOver.h">
-      <Filter>Logic Game\Game States\Game Over</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\0. C++ Code\Logic Game\Game States\Main Menu\MainMenu.h">
-      <Filter>Logic Game\Game States\Main Menu</Filter>
+    <ClInclude Include="..\..\0. C++ Code\Logic Game\Scrabble\TileRenderer.h">
+      <Filter>Logic Game\Scrabble</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
@@ -161,20 +155,8 @@
     <Filter Include="Graphic Library\NFont">
       <UniqueIdentifier>{9d14b6b8-0574-4243-9513-f9cd42bc5769}</UniqueIdentifier>
     </Filter>
-    <Filter Include="Logic Game\Game States">
-      <UniqueIdentifier>{38095961-83bf-44f8-8012-08273708c00e}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="Logic Game\UI Elements">
-      <UniqueIdentifier>{095d1b92-a040-4900-ac04-e4c8bf3cbfd7}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="Logic Game\Game States\Main Menu">
-      <UniqueIdentifier>{480b6348-bcfd-4305-9611-748af66fb236}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="Logic Game\Game States\Game">
-      <UniqueIdentifier>{cf9ec80a-394f-4bf5-9579-e0eb3bb9202c}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="Logic Game\Game States\Game Over">
-      <UniqueIdentifier>{edbee0bb-1fc0-4e79-abe2-551c6182e31c}</UniqueIdentifier>
+    <Filter Include="Logic Game\Scrabble">
+      <UniqueIdentifier>{e670f7c7-ae9f-47d3-bd41-0494fcea393b}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
 </Project>

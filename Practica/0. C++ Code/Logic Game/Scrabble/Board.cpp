@@ -7,6 +7,7 @@
 //
 
 #include "Board.h"
+#include <algorithm>
 
 Board::Board()
 :m_oSprite_Board("data/GUI/game-board.png")

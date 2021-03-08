@@ -23,7 +23,7 @@
     <ProjectGuid>{95EBFF15-EE8A-4B39-B29E-6E414EFC541A}</ProjectGuid>
     <RootNamespace>BatallaNaval</RootNamespace>
     <WindowsTargetPlatformVersion>10.0.17763.0</WindowsTargetPlatformVersion>
-    <ProjectName>LetrisGame</ProjectName>
+    <ProjectName>MP_Practica</ProjectName>
   </PropertyGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'" Label="Configuration">
@@ -74,6 +74,7 @@
     <OutDir>$(SolutionDir)\Program\</OutDir>
     <IncludePath>$(SolutionDir)\extlibs\SDL\include;$(SolutionDir)\extlibs\libpng;$(SolutionDir)\extlibs\SDL_ttf\include;$(IncludePath)</IncludePath>
     <LibraryPath>$(SolutionDir)\extlibs;$(LibraryPath)</LibraryPath>
+    <IntDir>$(ProjectDir)\..\..\1. Resources\</IntDir>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
     <OutDir>$(SolutionDir)\Program\</OutDir>
@@ -157,19 +158,18 @@
     <ClCompile Include="..\..\0. C++ Code\Graphic Lib\sprites.cpp" />
     <ClCompile Include="..\..\0. C++ Code\Graphic Lib\stb_vorbis.cpp" />
     <ClCompile Include="..\..\0. C++ Code\Graphic Lib\video.cpp" />
-    <ClCompile Include="..\..\0. C++ Code\Logic Game\Game States\Dictionary.cpp" />
-    <ClCompile Include="..\..\0. C++ Code\Logic Game\Game States\Game Over\GameOver.cpp" />
-    <ClCompile Include="..\..\0. C++ Code\Logic Game\Game States\Game\Board.cpp" />
-    <ClCompile Include="..\..\0. C++ Code\Logic Game\Game States\Game\Game.cpp" />
-    <ClCompile Include="..\..\0. C++ Code\Logic Game\Game States\Game\Tile.cpp" />
-    <ClCompile Include="..\..\0. C++ Code\Logic Game\Game States\Game\WordMaker.cpp" />
-    <ClCompile Include="..\..\0. C++ Code\Logic Game\Game States\Main Menu\MainMenu.cpp" />
-    <ClCompile Include="..\..\0. C++ Code\Logic Game\Game States\TileRenderer.cpp" />
     <ClCompile Include="..\..\0. C++ Code\Logic Game\joc.cpp" />
-    <ClCompile Include="..\..\0. C++ Code\Logic Game\LetrisGame.cpp" />
     <ClCompile Include="..\..\0. C++ Code\Logic Game\main.cpp" />
-    <ClCompile Include="..\..\0. C++ Code\Logic Game\UI Elements\Button.cpp" />
-    <ClCompile Include="..\..\0. C++ Code\Logic Game\UI Elements\RadioButton.cpp" />
+    <ClCompile Include="..\..\0. C++ Code\Logic Game\Scrabble\Board.cpp" />
+    <ClCompile Include="..\..\0. C++ Code\Logic Game\Scrabble\Button.cpp" />
+    <ClCompile Include="..\..\0. C++ Code\Logic Game\Scrabble\Cell.cpp" />
+    <ClCompile Include="..\..\0. C++ Code\Logic Game\Scrabble\Dictionary.cpp" />
+    <ClCompile Include="..\..\0. C++ Code\Logic Game\Scrabble\LettersBag.cpp" />
+    <ClCompile Include="..\..\0. C++ Code\Logic Game\Scrabble\Player.cpp" />
+    <ClCompile Include="..\..\0. C++ Code\Logic Game\Scrabble\PlayerTile.cpp" />
+    <ClCompile Include="..\..\0. C++ Code\Logic Game\Scrabble\ScrabbleGame.cpp" />
+    <ClCompile Include="..\..\0. C++ Code\Logic Game\Scrabble\Tile.cpp" />
+    <ClCompile Include="..\..\0. C++ Code\Logic Game\Scrabble\TileRenderer.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="..\..\0. C++ Code\Graphic Lib\debug.h" />
@@ -186,18 +186,17 @@
     <ClInclude Include="..\..\0. C++ Code\Graphic Lib\sprites.h" />
     <ClInclude Include="..\..\0. C++ Code\Graphic Lib\stb_vorbis.h" />
     <ClInclude Include="..\..\0. C++ Code\Graphic Lib\video.h" />
-    <ClInclude Include="..\..\0. C++ Code\Logic Game\Game States\Dictionary.h" />
-    <ClInclude Include="..\..\0. C++ Code\Logic Game\Game States\Game Over\GameOver.h" />
-    <ClInclude Include="..\..\0. C++ Code\Logic Game\Game States\Game\Board.h" />
-    <ClInclude Include="..\..\0. C++ Code\Logic Game\Game States\Game\Game.h" />
-    <ClInclude Include="..\..\0. C++ Code\Logic Game\Game States\Game\Tile.h" />
-    <ClInclude Include="..\..\0. C++ Code\Logic Game\Game States\Game\WordMaker.h" />
-    <ClInclude Include="..\..\0. C++ Code\Logic Game\Game States\Main Menu\MainMenu.h" />
-    <ClInclude Include="..\..\0. C++ Code\Logic Game\Game States\TileRenderer.h" />
     <ClInclude Include="..\..\0. C++ Code\Logic Game\joc.h" />
-    <ClInclude Include="..\..\0. C++ Code\Logic Game\LetrisGame.h" />
-    <ClInclude Include="..\..\0. C++ Code\Logic Game\UI Elements\Button.h" />
-    <ClInclude Include="..\..\0. C++ Code\Logic Game\UI Elements\RadioButton.h" />
+    <ClInclude Include="..\..\0. C++ Code\Logic Game\Scrabble\Board.h" />
+    <ClInclude Include="..\..\0. C++ Code\Logic Game\Scrabble\Button.h" />
+    <ClInclude Include="..\..\0. C++ Code\Logic Game\Scrabble\Cell.h" />
+    <ClInclude Include="..\..\0. C++ Code\Logic Game\Scrabble\Dictionary.h" />
+    <ClInclude Include="..\..\0. C++ Code\Logic Game\Scrabble\LettersBag.h" />
+    <ClInclude Include="..\..\0. C++ Code\Logic Game\Scrabble\Player.h" />
+    <ClInclude Include="..\..\0. C++ Code\Logic Game\Scrabble\PlayerTile.h" />
+    <ClInclude Include="..\..\0. C++ Code\Logic Game\Scrabble\ScrabbleGame.h" />
+    <ClInclude Include="..\..\0. C++ Code\Logic Game\Scrabble\Tile.h" />
+    <ClInclude Include="..\..\0. C++ Code\Logic Game\Scrabble\TileRenderer.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
