@@ -7,7 +7,7 @@
 //
 
 #include "PlayerTile.h"
-
+#include "GraphicManager.h"
 
 PlayerTile::PlayerTile(){
     m_bIsOnBoard = false;
@@ -18,25 +18,29 @@ PlayerTile::~PlayerTile(){
     
 }
 
-void PlayerTile::Render (TileRenderer& renderer, bool small){
+void PlayerTile::render (bool small){
     if (!m_bIsEmpty && !m_bIsOnBoard) {
-        renderer.Render(m_oTile.GetLetter(), m_fPosX, m_fPosY, small);
+        int index = m_oTile.getLetter() - 'a'; //index: 0 - 25
+        if (!small){
+            index += 26;
+        }
+        GraphicManager::getInstance()->drawSprite(IMAGE_NAME(index), m_fPosX, m_fPosY);
     }
 }
 
-void PlayerTile::Recall (){
+void PlayerTile::recall (){
     if (!m_bIsEmpty){
         m_bIsOnBoard = false;
     }
 }
 
-void PlayerTile::SetPosition (float posX, float posY){
+void PlayerTile::setPosition (float posX, float posY){
     m_fPosX = posX;
     m_fPosY = posY;
 }
 
 
-void PlayerTile::SetTile (const Tile& tile){
+void PlayerTile::setTile (const Tile& tile){
     m_bIsOnBoard = false;
     m_bIsEmpty = false;
     m_oTile = tile;

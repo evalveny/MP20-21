@@ -18,10 +18,8 @@ public:
     Tile(char letter, unsigned int score);
     ~Tile();
     
-    char            GetLetter   () {return m_cLetter;}
-    unsigned int    GetScore    () {return m_uiScore;}
-    //void            SetLetter   (char letter) {m_cLetter = letter;}
-    //void            SetScore    (unsigned int score) {m_uiScore = score;}
+    char            getLetter   () {return m_cLetter;}
+    unsigned int    getScore    () {return m_uiScore;}
     
     
 private:

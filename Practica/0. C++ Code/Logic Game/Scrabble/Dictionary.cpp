@@ -18,7 +18,7 @@ Dictionary::~Dictionary () {
 }
 
 
-void Dictionary::SetLanguage (Language language) {
+void Dictionary::setLanguage (Language language) {
     m_eCurrentLanguage = language;
     switch (m_eCurrentLanguage){
         case CATALAN:
@@ -56,13 +56,13 @@ void Dictionary::Load (const string& path) {
             //m_aWords[m_iNumWords] = word;
             m_iNumWords++;
         }
-        cout << "Num of words: " << m_iNumWords;
+        cout << "Num of words: " << m_iNumWords << endl;
         file.close();
     }
 }
 
 
-bool Dictionary::Check (const string& word){
+bool Dictionary::check (const string& word){
 
     std::vector<string>::iterator it = m_aWords.begin();
 	std::vector<string>::iterator itEnd = m_aWords.end();

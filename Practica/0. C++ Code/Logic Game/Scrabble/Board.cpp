@@ -8,75 +8,42 @@
 
 #include "Board.h"
 #include <algorithm>
+#include <iostream>
+#include <fstream>
 
 Board::Board()
 :m_oSprite_Board("data/GUI/game-board.png")
 {
-    m_aCells[0][0].SetScoreEffect(TW);
-    m_aCells[7][0].SetScoreEffect(TW);
-    m_aCells[14][0].SetScoreEffect(TW);
-    m_aCells[0][7].SetScoreEffect(TW);
-    m_aCells[14][7].SetScoreEffect(TW);
-    m_aCells[0][14].SetScoreEffect(TW);
-    m_aCells[7][14].SetScoreEffect(TW);
-    m_aCells[14][14].SetScoreEffect(TW);
     
-    m_aCells[5][1].SetScoreEffect(TL);
-    m_aCells[9][1].SetScoreEffect(TL);
-    m_aCells[1][5].SetScoreEffect(TL);
-    m_aCells[5][5].SetScoreEffect(TL);
-    m_aCells[9][5].SetScoreEffect(TL);
-    m_aCells[13][9].SetScoreEffect(TL);
-    m_aCells[1][9].SetScoreEffect(TL);
-    m_aCells[5][9].SetScoreEffect(TL);
-    m_aCells[9][9].SetScoreEffect(TL);
-    m_aCells[13][9].SetScoreEffect(TL);
-    m_aCells[5][13].SetScoreEffect(TL);
-    m_aCells[9][13].SetScoreEffect(TL);
-    
-    m_aCells[1][1].SetScoreEffect(DW);
-    m_aCells[2][2].SetScoreEffect(DW);
-    m_aCells[3][3].SetScoreEffect(DW);
-    m_aCells[4][4].SetScoreEffect(DW);
-    m_aCells[10][10].SetScoreEffect(DW);
-    m_aCells[11][11].SetScoreEffect(DW);
-    m_aCells[12][12].SetScoreEffect(DW);
-    m_aCells[13][13].SetScoreEffect(DW);
-    m_aCells[1][13].SetScoreEffect(DW);
-    m_aCells[2][12].SetScoreEffect(DW);
-    m_aCells[3][11].SetScoreEffect(DW);
-    m_aCells[4][10].SetScoreEffect(DW);
-    m_aCells[10][4].SetScoreEffect(DW);
-    m_aCells[11][3].SetScoreEffect(DW);
-    m_aCells[12][2].SetScoreEffect(DW);
-    m_aCells[13][1].SetScoreEffect(DW);
-    
-    m_aCells[0][3].SetScoreEffect(DL);
-    m_aCells[0][11].SetScoreEffect(DL);
-    m_aCells[14][3].SetScoreEffect(DL);
-    m_aCells[14][11].SetScoreEffect(DL);
-    m_aCells[2][6].SetScoreEffect(DL);
-    m_aCells[2][8].SetScoreEffect(DL);
-    m_aCells[12][6].SetScoreEffect(DL);
-    m_aCells[12][8].SetScoreEffect(DL);
-    m_aCells[3][0].SetScoreEffect(DL);
-    m_aCells[3][7].SetScoreEffect(DL);
-    m_aCells[11][14].SetScoreEffect(DL);
-    m_aCells[11][0].SetScoreEffect(DL);
-    m_aCells[11][7].SetScoreEffect(DL);
-    m_aCells[11][14].SetScoreEffect(DL);
-    m_aCells[6][2].SetScoreEffect(DL);
-    m_aCells[6][6].SetScoreEffect(DL);
-    m_aCells[6][8].SetScoreEffect(DL);
-    m_aCells[6][12].SetScoreEffect(DL);
-    m_aCells[8][2].SetScoreEffect(DL);
-    m_aCells[8][6].SetScoreEffect(DL);
-    m_aCells[8][8].SetScoreEffect(DL);
-    m_aCells[8][12].SetScoreEffect(DL);
-    m_aCells[7][3].SetScoreEffect(DL);
-    m_aCells[7][11].SetScoreEffect(DL);
-    
-    m_oDictionary.SetLanguage(ENGLISH);
+    ifstream boardFile;
+    boardFile.open ("data/Configuration/board.txt");
+    if (boardFile.is_open())
+    {
+        int x, y;
+        string effect;
+        
+        do
+        {
+            boardFile >> x >> y >> effect;
+            ScoreEffect score_effect;
+            if (effect.compare("DL")){
+                score_effect = DL;
+            }else if (effect.compare("TL")){
+                score_effect = TL;
+            }else if (effect.compare("DW")){
+                score_effect = DW;
+            }else {
+                score_effect = TW;
+            }
+            m_aCells[x][y].setScoreEffect(score_effect);
+            cout << x << " " << y << " " << effect <<endl;
+            
+        } while ( !boardFile.eof() );
+        
+        boardFile.close();
+    }
+
+    m_oDictionary.setLanguage(ENGLISH);
     m_bIsFirstWord = true;
 }
 
@@ -84,31 +51,30 @@ Board::~Board(){
     
 }
 
-void Board::Render (TileRenderer& renderer) {
+void Board::render () {
     m_oSprite_Board.draw(BOARD_POS_X, BOARD_POS_Y);
     
     for (int i=0; i < BOARD_COLS_AND_ROWS; i++){
         for (int j=0; j < BOARD_COLS_AND_ROWS; j++){
-            m_aCells[i][j].Render(BOARD_POS_X + i*BOARD_TILE_SIZE,
-                                  BOARD_POS_Y + j*BOARD_TILE_SIZE,
-                                  renderer);
+            m_aCells[i][j].render(BOARD_POS_X + i*BOARD_TILE_SIZE,
+                                  BOARD_POS_Y + j*BOARD_TILE_SIZE);
         }
     }
     
 }
 
-void Board::SendCurrentWordToBoard () {
+void Board::sendCurrentWordToBoard () {
     for (int i = 0; i < m_aCurrentWord.size(); i++){
-        int col = m_aCurrentWord[i].GetCol();
-        int row = m_aCurrentWord[i].GetRow();
-        m_aCells[col][row].SetTilePlayed();
+        int col = m_aCurrentWord[i].getCol();
+        int row = m_aCurrentWord[i].getRow();
+        m_aCells[col][row].setTilePlayed();
     }
     m_aCurrentWord.clear();
     m_bIsFirstWord = false;
     m_iTotalScore = 0;
 }
 
-PositionResult Board::SetTile (Tile &tile,
+PositionResult Board::setTile (Tile &tile,
                                int posX, int posY,
                                BoardPosition& boardPos)
 {
@@ -122,14 +88,14 @@ PositionResult Board::SetTile (Tile &tile,
         float cellSize = BOARD_SIZE / BOARD_COLS_AND_ROWS;
         int col = int((posX - BOARD_POS_X)/cellSize);
         int row = int((posY - BOARD_POS_Y)/cellSize);
-        boardPos.SetCol(col);
-        boardPos.SetRow(row);
-        if (!m_aCells[col][row].IsEmpty()){
+        boardPos.setCol(col);
+        boardPos.setRow(row);
+        if (!m_aCells[col][row].isEmpty()){
             return NOT_EMPTY;
         }else{
             //TODO get all the wrong words...
             m_aCurrentWord.push_back(BoardPosition(col, row));
-            m_aCells[col][row].SetTile(tile);
+            m_aCells[col][row].setTile(tile);
             return VALID_POSITTIOIN;
         }
     }
@@ -137,11 +103,11 @@ PositionResult Board::SetTile (Tile &tile,
     return result;
 }
 
-bool Board::IsInTheCurrentWord (int col, int row){
+bool Board::isInTheCurrentWord (int col, int row){
     bool isTheCurrentWord = false;
     int i = 0;
     while(!isTheCurrentWord && i < m_aCurrentWord.size()){
-        isTheCurrentWord = m_aCurrentWord[i].GetCol() == col && m_aCurrentWord[i].GetRow() == row;
+        isTheCurrentWord = m_aCurrentWord[i].getCol() == col && m_aCurrentWord[i].getRow() == row;
         i++;
     }
     return isTheCurrentWord;
@@ -149,7 +115,7 @@ bool Board::IsInTheCurrentWord (int col, int row){
 
 
 
-void Board::ResetWord (){
+void Board::resetWord (){
     m_sNewWord = "";
     m_bHasLetterOfCurrentWord = false;
     m_iScoreOfNewWord = 0;
@@ -157,19 +123,19 @@ void Board::ResetWord (){
 }
 
 
-void Board::FinishSearchInLine () {
+void Board::finishSearchInLine () {
     if (m_bHasLetterOfCurrentWord && m_sNewWord.length() > 1){
         m_aNewWords.push_back(m_sNewWord);
         m_iTotalScore += m_iScoreOfNewWord * m_iMultiplyFactorOfNewWord;
     }
 }
 
-void Board::ReadCell (int col, int row) {
-    m_bHasLetterOfCurrentWord = m_bHasLetterOfCurrentWord || IsInTheCurrentWord(col, row);
-    if( !m_aCells[col][row].IsEmpty()){
-        m_sNewWord += m_aCells[col][row].GetTile().GetLetter();
-        int letterScore= m_aCells[col][row].GetTile().GetScore();
-        switch (m_aCells[col][row].GetScoreEffect()) {
+void Board::readCell (int col, int row) {
+    m_bHasLetterOfCurrentWord = m_bHasLetterOfCurrentWord || isInTheCurrentWord(col, row);
+    if( !m_aCells[col][row].isEmpty()){
+        m_sNewWord += m_aCells[col][row].getTile().getLetter();
+        int letterScore= m_aCells[col][row].getTile().getScore();
+        switch (m_aCells[col][row].getScoreEffect()) {
             case DL:
                 letterScore *= 2;
                 break;
@@ -192,32 +158,32 @@ void Board::ReadCell (int col, int row) {
             m_aNewWords.push_back(m_sNewWord);
             m_iTotalScore += m_iScoreOfNewWord * m_iMultiplyFactorOfNewWord;
         }
-        ResetWord();
+        resetWord();
     }
 }
 
-void Board::SearchForNewWords () {
+void Board::searchForNewWords () {
     m_aNewWords.clear();
     m_iTotalScore = 0;
     
     //Horizontal sweep:
     for(int row = 0; row < BOARD_COLS_AND_ROWS; row++){
-        ResetWord();
+        resetWord();
         for(int col = 0; col < BOARD_COLS_AND_ROWS; col++){
             //For each row we make a Horizontal sweep:
-            ReadCell(col,row);
+            readCell(col,row);
         }
-        FinishSearchInLine();
+        finishSearchInLine();
     }
     
     //Vertical sweep:
     for(int col = 0; col < BOARD_COLS_AND_ROWS; col++){
-        ResetWord();
+        resetWord();
         for(int row = 0; row < BOARD_COLS_AND_ROWS; row++){
             //For each row we make a Horizontal sweep:
-            ReadCell(col,row);
+            readCell(col,row);
         }
-        FinishSearchInLine();
+        finishSearchInLine();
     }
     
     //Print word list to console:
@@ -229,25 +195,25 @@ void Board::SearchForNewWords () {
     }
     
 }
-void Board::SearchForWrongWords()
+void Board::searchForWrongWords()
 {
     m_aWrongWords.clear();
     vector<string>::iterator it = m_aNewWords.begin();
     vector<string>::iterator itEnd = m_aNewWords.end();
     for(;it != itEnd; it++){
-        if (!m_oDictionary.Check(*it)){
+        if (!m_oDictionary.check(*it)){
             m_aWrongWords.push_back(*it);
         }
     }
 }
 
-bool Board::CheckPosition (std::string& errorMsg){
+bool Board::checkPosition (std::string& errorMsg){
     errorMsg = "";
     bool isOk = true;
     
     int center_coordinate = (int)BOARD_COLS_AND_ROWS/2;
     if (m_bIsFirstWord){
-        if (m_aCells[center_coordinate][center_coordinate].IsEmpty()){
+        if (m_aCells[center_coordinate][center_coordinate].isEmpty()){
             isOk = false;
             errorMsg = "You have to start using the center position";
         }else if (m_aCurrentWord.size()==1){
@@ -265,11 +231,11 @@ bool Board::CheckPosition (std::string& errorMsg){
         
         //to check if all tiles are vertically aligned
         bool verticallyAligned = true;
-        int col = m_aCurrentWord[0].GetCol();
+        int col = m_aCurrentWord[0].getCol();
         std::vector<int> l_aCols;
         for (int i = 0; i < m_aCurrentWord.size(); i++){
-            l_aCols.push_back(m_aCurrentWord[i].GetCol());
-            if (col != m_aCurrentWord[i].GetCol()){
+            l_aCols.push_back(m_aCurrentWord[i].getCol());
+            if (col != m_aCurrentWord[i].getCol()){
                 verticallyAligned  = false;
             }
         }
@@ -277,10 +243,10 @@ bool Board::CheckPosition (std::string& errorMsg){
         //to check if all tiles are horizontally aligned
         std::vector<int> l_aRows;
         bool horizontallyAligned = true;
-        int row = m_aCurrentWord[0].GetRow();
+        int row = m_aCurrentWord[0].getRow();
         for (int i = 0; i < m_aCurrentWord.size(); i++){
-            l_aRows.push_back(m_aCurrentWord[i].GetRow());
-            if (row != m_aCurrentWord[i].GetRow()){
+            l_aRows.push_back(m_aCurrentWord[i].getRow());
+            if (row != m_aCurrentWord[i].getRow()){
                 horizontallyAligned  = false;
             }
         }
@@ -288,10 +254,10 @@ bool Board::CheckPosition (std::string& errorMsg){
             std::sort(l_aCols.begin(), l_aCols.end());
             int minCol = l_aCols[0];
             int maxCol = l_aCols[l_aCols.size()-1];
-            int row = m_aCurrentWord[0].GetRow();
+            int row = m_aCurrentWord[0].getRow();
             for(int col = minCol; col <= maxCol; col++){
                 //there can be no empty cells between min and max:
-                if (m_aCells[col][row].IsEmpty()){
+                if (m_aCells[col][row].isEmpty()){
                     horizontallyAligned = false;
                 }
             }
@@ -299,10 +265,10 @@ bool Board::CheckPosition (std::string& errorMsg){
             std::sort(l_aRows.begin(), l_aRows.end());
             int minRow = l_aRows[0];
             int maxRow = l_aRows[l_aRows.size()-1];
-            int col = m_aCurrentWord[0].GetCol();
+            int col = m_aCurrentWord[0].getCol();
             for(int row = minRow; row <= maxRow; row++){
                 //there can be no empty cells between min and max:
-                if (m_aCells[col][row].IsEmpty()){
+                if (m_aCells[col][row].isEmpty()){
                     verticallyAligned = false;
                 }
             }
@@ -319,28 +285,28 @@ bool Board::CheckPosition (std::string& errorMsg){
         bool someNeighbor = false;
         
         for (int i = 0; i < m_aCurrentWord.size(); i++){
-            int col =  m_aCurrentWord[i].GetCol();
-            int row =  m_aCurrentWord[i].GetRow();
+            int col =  m_aCurrentWord[i].getCol();
+            int row =  m_aCurrentWord[i].getRow();
             int col_aux, row_aux;
             //Four directions:
             col_aux = max(0, col - 1); //UP
             row_aux = row;
-            if (m_aCells[col_aux][row_aux].IsTilePlayed()){
+            if (m_aCells[col_aux][row_aux].isTilePlayed()){
                 someNeighbor = true;
             }
             col_aux = min(BOARD_COLS_AND_ROWS - 1, col + 1); //DOWN
             row_aux = row;
-            if (m_aCells[col_aux][row_aux].IsTilePlayed()){
+            if (m_aCells[col_aux][row_aux].isTilePlayed()){
                 someNeighbor = true;
             }
             col_aux = col;
             row_aux = max(0, row - 1); //LEFT;
-            if (m_aCells[col_aux][row_aux].IsTilePlayed()){
+            if (m_aCells[col_aux][row_aux].isTilePlayed()){
                 someNeighbor = true;
             }
             col_aux = col;
             row_aux = min(BOARD_COLS_AND_ROWS - 1, row + 1); //RIGHT;
-            if (m_aCells[col_aux][row_aux].IsTilePlayed()){
+            if (m_aCells[col_aux][row_aux].isTilePlayed()){
                 someNeighbor = true;
             }
         }
@@ -354,11 +320,11 @@ bool Board::CheckPosition (std::string& errorMsg){
 
 
 
-bool Board::CheckNewWords (int& points) {
+bool Board::checkNewWords (int& points) {
     bool isCorrect = false;
     
-    SearchForNewWords();
-    SearchForWrongWords();
+    searchForNewWords();
+    searchForWrongWords();
     
     if (m_aWrongWords.size() == 0){
         isCorrect = true;
@@ -368,30 +334,30 @@ bool Board::CheckNewWords (int& points) {
     return isCorrect;
 }
 
-void Board::RemoveCurrentWord () {
+void Board::removeCurrentWord () {
     
     vector<BoardPosition>::iterator it = m_aCurrentWord.begin();
     vector<BoardPosition>::iterator itEnd = m_aCurrentWord.end();
     for(;it != itEnd; it++){
-        int col = (*it).GetCol();
-        int row = (*it).GetRow();
-        m_aCells[col][row].RemoveTile();
+        int col = (*it).getCol();
+        int row = (*it).getRow();
+        m_aCells[col][row].removeTile();
     }
     m_aCurrentWord.clear();
 }
 
-void Board::RemoveLetter(BoardPosition boardPos) {
+void Board::removeLetter(BoardPosition boardPos) {
     vector<BoardPosition>::iterator it = m_aCurrentWord.begin();
     vector<BoardPosition>::iterator itEnd = m_aCurrentWord.end();
     
-    int col = boardPos.GetCol();
-    int row = boardPos.GetRow();
+    int col = boardPos.getCol();
+    int row = boardPos.getRow();
     bool found = false;
     while(it!=itEnd && !found){
-        int col_aux = (*it).GetCol();
-        int row_aux = (*it).GetRow();
-        if (boardPos.GetCol() == col_aux && row == row_aux){
-            m_aCells[col][row].RemoveTile();
+        int col_aux = (*it).getCol();
+        int row_aux = (*it).getRow();
+        if (boardPos.getCol() == col_aux && row == row_aux){
+            m_aCells[col][row].removeTile();
             found = true;
         }else{
             it++;

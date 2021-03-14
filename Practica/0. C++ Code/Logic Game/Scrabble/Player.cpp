@@ -19,80 +19,80 @@ Player::~Player(){
     
 }
 
-void Player::AddTiles (LettersBag& bag){
+void Player::addTiles (LettersBag& bag){
     for (int i = 0; i < NUM_MAX_PLAYER_TILES; i++) {
-        if (m_aTiles[i].IsEmpty()) {
-            if (!bag.IsEmpty()){
-                m_aTiles[i].SetTile(bag.GetLetter());
+        if (m_aTiles[i].isEmpty()) {
+            if (!bag.isEmpty()){
+                m_aTiles[i].setTile(bag.getLetter());
             }
         }
     }
-    Recall();
+    recall();
 }
 
-void Player::Render (TileRenderer& renderer) {
+void Player::render () {
     for (int i = 0; i < NUM_MAX_PLAYER_TILES; i++){
         if (m_bIsDragging && i == m_iTileDragging){
-            m_aTiles[i].Render(renderer, true);
+            m_aTiles[i].render(true);
         }else{
-            m_aTiles[i].Render(renderer, false);
+            m_aTiles[i].render(false);
         }
     }
 }
 
-bool Player::AnyTileOnTheBoard () {
+bool Player::anyTileOnTheBoard () {
     for (int i = 0; i < NUM_MAX_PLAYER_TILES; i++){
-        if (!m_aTiles[i].IsEmpty() && m_aTiles[i].IsOnBoard()){
+        if (!m_aTiles[i].isEmpty() && m_aTiles[i].isOnBoard()){
             return true;
         }
     }
     return false;
 }
 
-void Player::SendCurrentWordToBoard (Board& board){
+void Player::sendCurrentWordToBoard (Board& board){
     for (int i = 0; i < NUM_MAX_PLAYER_TILES; i++) {
-        if (m_aTiles[i].IsOnBoard()){
+        if (m_aTiles[i].isOnBoard()){
             //hem de marcar les fitxes jugades del player com a buides.
-            m_aTiles[i].PlayTile();
+            m_aTiles[i].playTile();
         }
     }
-    m_iScore += board.GetScoreCurrentWord();
+    m_iScore += board.getScoreCurrentWord();
     //hem de marcar les fitxes de la current word en el board com jugades
-    board.SendCurrentWordToBoard();
+    board.sendCurrentWordToBoard();
 }
 
-void Player::Update (int mousePosX, int mousePosY,
+void Player::update (int mousePosX, int mousePosY,
                      bool mouseIsPressed, bool mouseStatus,
                      float deltaTime, Board & board,
                      std::string& correctMove,
                      std::string& incorrectMove) {
     
     if (m_bIsDragging){
-        m_aTiles[m_iTileDragging].SetPosition(mousePosX, mousePosY);
+        m_aTiles[m_iTileDragging].setPosition(mousePosX, mousePosY);
         if (!mouseStatus){
             m_bIsDragging = false;
             BoardPosition boardPos;
-            PositionResult result = board.SetTile(m_aTiles[m_iTileDragging].GetTile(), mousePosX, mousePosY, boardPos);
+            PositionResult result = board.setTile(m_aTiles[m_iTileDragging].getTile(), mousePosX, mousePosY, boardPos);
             
             switch (result){
                 case INVALID_POSITION:
-                    m_aTiles[m_iTileDragging].SetPosition(
+                    m_aTiles[m_iTileDragging].setPosition(
                             PLAYER_TILE_POS_X + (PLAYER_TILE_SIZE + PLAYER_SEPATION_BETWEEN_TILE)*m_iTileDragging,
                             PLAYER_TILE_POS_Y);
-                    if (AnyTileOnTheBoard()){
-                        CheckBoard(board,correctMove, incorrectMove);
+                    if (anyTileOnTheBoard()){
+                        checkBoard(board,correctMove, incorrectMove);
                     }
                     
                     break;
                 case VALID_POSITTIOIN:
                 {
-                    int posX = BOARD_POS_X + boardPos.GetCol()*BOARD_TILE_SIZE;
-                    int posY = BOARD_POS_Y + boardPos.GetRow()*BOARD_TILE_SIZE;
-                    m_aTiles[m_iTileDragging].SetPosition(posX,posY);
-                    m_aTiles[m_iTileDragging].SetBoardPos(boardPos);
-                    m_aTiles[m_iTileDragging].LeaveOnBoard();
+                    int posX = BOARD_POS_X + boardPos.getCol()*BOARD_TILE_SIZE;
+                    int posY = BOARD_POS_Y + boardPos.getRow()*BOARD_TILE_SIZE;
+                    m_aTiles[m_iTileDragging].setPosition(posX,posY);
+                    m_aTiles[m_iTileDragging].setBoardPos(boardPos);
+                    m_aTiles[m_iTileDragging].leaveOnBoard();
                     
-                    CheckBoard(board,correctMove, incorrectMove);
+                    checkBoard(board,correctMove, incorrectMove);
                 }
                     
                     
@@ -100,7 +100,7 @@ void Player::Update (int mousePosX, int mousePosY,
                 case NOT_EMPTY:
                     correctMove = "";
                     incorrectMove = "Cell is not empty";
-                    m_aTiles[m_iTileDragging].SetPosition(
+                    m_aTiles[m_iTileDragging].setPosition(
                             PLAYER_TILE_POS_X + (PLAYER_TILE_SIZE + PLAYER_SEPATION_BETWEEN_TILE)*m_iTileDragging,
                             PLAYER_TILE_POS_Y);
                     break;
@@ -109,26 +109,26 @@ void Player::Update (int mousePosX, int mousePosY,
         }
     }else if (mouseStatus){
         for (int i = 0; i < NUM_MAX_PLAYER_TILES; i++) {
-            if (!m_aTiles[i].IsEmpty()){
+            if (!m_aTiles[i].isEmpty()){
                 
                 int size_Tile;
-                if(m_aTiles[i].IsOnBoard()){
+                if(m_aTiles[i].isOnBoard()){
                     size_Tile = BOARD_TILE_SIZE;
                 }else{
                     size_Tile = PLAYER_TILE_SIZE;
                 }
                 
-                int posX_Tile = m_aTiles[i].GetPosX();
-                int posY_Tile = m_aTiles[i].GetPosY();
+                int posX_Tile = m_aTiles[i].getPosX();
+                int posY_Tile = m_aTiles[i].getPosY();
                 
                 if (mousePosX >= posX_Tile && mousePosX <= posX_Tile + size_Tile &&
                     mousePosY >= posY_Tile && mousePosY <= posY_Tile + size_Tile){
                     m_bIsDragging = true;
                     correctMove = incorrectMove = "";
                     m_iTileDragging = i;
-                    if(m_aTiles[i].IsOnBoard()){
-                        m_aTiles[i].PickupFromBoard();
-                        board.RemoveLetter(m_aTiles[i].GetBoardPos());
+                    if(m_aTiles[i].isOnBoard()){
+                        m_aTiles[i].pickupFromBoard();
+                        board.removeLetter(m_aTiles[i].getBoardPos());
                     }
                     
                 }
@@ -137,47 +137,47 @@ void Player::Update (int mousePosX, int mousePosY,
     }
 }
 
-void Player::CheckBoard(Board & board,
+void Player::checkBoard(Board & board,
                         std::string& correctMove,
                         std::string& incorrectMove){
     
     int points = 0;
     std::string errorMsg = "";
-    if (!board.CheckPosition(errorMsg))
+    if (!board.checkPosition(errorMsg))
     {
         correctMove = "";
         incorrectMove = errorMsg;
     }else{
-        if (board.CheckNewWords(points)){
+        if (board.checkNewWords(points)){
             correctMove = "Points: " + std::to_string(points);
             incorrectMove = "";
         }else{
             correctMove = "";
-            incorrectMove = board.GetWrongWords()[0];
+            incorrectMove = board.getWrongWords()[0];
         }
     }
 }
 
-void Player::Recall (){
+void Player::recall (){
     float l_fPosY = PLAYER_TILE_POS_Y;
     float l_fPosX = PLAYER_TILE_POS_X;
     for (int i = 0; i < NUM_MAX_PLAYER_TILES; i++) {
-        m_aTiles[i].SetPosition(l_fPosX, l_fPosY);
-        m_aTiles[i].Recall();
+        m_aTiles[i].setPosition(l_fPosX, l_fPosY);
+        m_aTiles[i].recall();
         l_fPosX  += PLAYER_TILE_SIZE + PLAYER_SEPATION_BETWEEN_TILE;
     }
 }
 
-void Player::Suffle (){
+void Player::shuffle (){
     
 }
 
 
-bool Player::AllTilesPlayed () {
+bool Player::allTilesPlayed () {
     bool allTilesPlayed = true;
     int index = 0;
     while(allTilesPlayed && index < NUM_MAX_PLAYER_TILES){
-        if (!m_aTiles[index].IsEmpty()){
+        if (!m_aTiles[index].isEmpty()){
             allTilesPlayed = false;
         }else{
             index++;

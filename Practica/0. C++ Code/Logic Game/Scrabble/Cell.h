@@ -11,7 +11,6 @@
 
 #include <stdio.h>
 #include "Tile.h"
-#include "TileRenderer.h"
 
 typedef enum {
     DL = 0,
@@ -27,15 +26,15 @@ public:
     Cell(): m_bEmpty(true), m_eScoreEffect(NO_EFFECT), m_bTilePlayed(false) {}
     ~Cell() {}
     
-    void        Render          (int pos_x, int pos_y, TileRenderer& renderer);
-    bool        IsEmpty         () {return m_bEmpty;}
-    ScoreEffect GetScoreEffect  () {return m_eScoreEffect;}
-    void        SetScoreEffect  (ScoreEffect effect) {m_eScoreEffect = effect;}
-    Tile        GetTile         () {return m_oTile;}
-    void        SetTile         (Tile tile);
-    void        RemoveTile      () {m_bEmpty = true;}
-    void        SetTilePlayed   () {m_bTilePlayed = true;}
-    bool        IsTilePlayed    () {return m_bTilePlayed;}
+    void        render          (int pos_x, int pos_y);
+    bool        isEmpty         () {return m_bEmpty;}
+    ScoreEffect getScoreEffect  () {return m_eScoreEffect;}
+    void        setScoreEffect  (ScoreEffect effect) {m_eScoreEffect = effect;}
+    Tile        getTile         () {return m_oTile;}
+    void        setTile         (Tile tile);
+    void        removeTile      () {m_bEmpty = true;}
+    void        setTilePlayed   () {m_bTilePlayed = true;}
+    bool        isTilePlayed    () {return m_bTilePlayed;}
 private:
     ScoreEffect m_eScoreEffect;
     Tile        m_oTile;

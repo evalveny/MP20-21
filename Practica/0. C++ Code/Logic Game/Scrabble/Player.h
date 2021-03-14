@@ -11,7 +11,6 @@
 
 #include <stdio.h>
 #include "Tile.h"
-#include "TileRenderer.h"
 #include "PlayerTile.h"
 #include "Board.h"
 #include "LettersBag.h"
@@ -29,20 +28,20 @@ public:
     Player();
     ~Player();
     
-    void    Update                  (int mousePosX, int mousePosY,
+    void    update                  (int mousePosX, int mousePosY,
                                      bool mouseIsPressed, bool mouseStatus,
                                      float deltaTime, Board& board,
                                      std::string& correctMove,
                                      std::string& incorrectMove);
-    void    Render                  (TileRenderer& renderer);
-    void    AddTiles                (LettersBag& bag);
-    void    SendCurrentWordToBoard  (Board& board);
-    void    Recall                  ();
-    void    Suffle                  ();
-    bool    AnyTileOnTheBoard       ();
-    bool    AllTilesPlayed          ();
-    int     GetScore                () {return m_iScore;}
-    void    CheckBoard              (Board & board,
+    void    render                  ();
+    void    addTiles                (LettersBag& bag);
+    void    sendCurrentWordToBoard  (Board& board);
+    void    recall                  ();
+    void    shuffle                 ();
+    bool    anyTileOnTheBoard       ();
+    bool    allTilesPlayed          ();
+    int     getScore                () {return m_iScore;}
+    void    checkBoard              (Board & board,
                                      std::string& correctMove,
                                      std::string& incorrectMove);
     

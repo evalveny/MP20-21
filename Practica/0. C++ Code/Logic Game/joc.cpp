@@ -35,7 +35,7 @@ void joc()
 		
 		int mousePosX = Mouse_getX();
 		int mousePosY = Mouse_getY();
-		game.UpdateAndRender(mousePosX, mousePosY, moousePressed, mouseStatus,(float)deltaTime);
+		game.updateAndRender(mousePosX, mousePosY, moousePressed, mouseStatus,(float)deltaTime);
 		
 		// Actualitza la pantalla
 		pantalla.update();

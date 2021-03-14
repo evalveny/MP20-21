@@ -24,9 +24,9 @@ public:
     Dictionary();
     ~Dictionary();
 
-    void        SetLanguage         (Language language);
-    Language    GetCurrentLanguage  () {return m_eCurrentLanguage;}
-    bool        Check               (const string& word);
+    void        setLanguage         (Language language);
+    Language    getCurrentLanguage  () {return m_eCurrentLanguage;}
+    bool        check               (const string& word);
     
 
 private:

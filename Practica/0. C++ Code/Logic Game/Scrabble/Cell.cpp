@@ -7,14 +7,20 @@
 //
 
 #include "Cell.h"
+#include "GraphicManager.h"
 
-void Cell::Render (int pos_x, int pos_y, TileRenderer& renderer){
+void Cell::render (int pos_x, int pos_y){
     if (!m_bEmpty){
-        renderer.Render(m_oTile.GetLetter(), pos_x, pos_y, true);
+        GraphicManager* gm = GraphicManager::getInstance();
+        //[IMAGE_LETTER_A_SMALL - IMAGE_LETTER_Z_SMALL] - [0 - 25]
+        int index = m_oTile.getLetter() - 'a'; //index 0 - 25-->
+        
+        gm->drawSprite((IMAGE_NAME)index, pos_x, pos_y);
+        
     }
 }
 
-void Cell::SetTile (Tile tile) {
+void Cell::setTile (Tile tile) {
     m_oTile = tile;
     m_bEmpty = false;
 }

@@ -11,7 +11,6 @@
 
 #include <stdio.h>
 #include "Tile.h"
-#include "TileRenderer.h"
 #include "Board.h"
 
 
@@ -21,20 +20,20 @@ public:
     PlayerTile();
     ~PlayerTile();
     
-    void    Render          (TileRenderer& renderer, bool small);
-    bool    IsOnBoard       () {return m_bIsOnBoard;}
-    bool    IsEmpty         () {return m_bIsEmpty;}
-    void    LeaveOnBoard    () {m_bIsOnBoard = true;};
-    void    PickupFromBoard () {m_bIsOnBoard = false;};
-    void    PlayTile        () {m_bIsEmpty = true;}
-    void    SetTile         (const Tile& tile);
-    void    SetPosition     (float posX, float posY);
-    void    Recall          ();
-    float   GetPosX         () {return m_fPosX;}
-    float   GetPosY         () {return m_fPosY;}
-    Tile&   GetTile         () {return m_oTile;}
-    BoardPosition   GetBoardPos () {return m_oBoardPosition;}
-    void            SetBoardPos (BoardPosition pos) {m_oBoardPosition = pos;}
+    void    render          (bool small);
+    bool    isOnBoard       () {return m_bIsOnBoard;}
+    bool    isEmpty         () {return m_bIsEmpty;}
+    void    leaveOnBoard    () {m_bIsOnBoard = true;};
+    void    pickupFromBoard () {m_bIsOnBoard = false;};
+    void    playTile        () {m_bIsEmpty = true;}
+    void    setTile         (const Tile& tile);
+    void    setPosition     (float posX, float posY);
+    void    recall          ();
+    float   getPosX         () {return m_fPosX;}
+    float   getPosY         () {return m_fPosY;}
+    Tile&   getTile         () {return m_oTile;}
+    BoardPosition   getBoardPos () {return m_oBoardPosition;}
+    void            setBoardPos (BoardPosition pos) {m_oBoardPosition = pos;}
     
     
     

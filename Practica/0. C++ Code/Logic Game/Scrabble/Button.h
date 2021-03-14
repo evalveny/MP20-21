@@ -4,7 +4,7 @@
 
 #include <stdio.h>
 #include <string>
-#include "../joc.h"
+#include "../GraphicManager.h"
 
 using namespace std;
 
@@ -17,14 +17,15 @@ public:
         NONE
     } ButtonState;
 
-    Button( const string& path_normal,
-            const string& path_pressed,
-            int posX, int posY, int width, int height);
+    Button(IMAGE_NAME state_normal,
+           IMAGE_NAME state_pressed,
+           int posX, int posY,
+           int width, int height);
 
     ~Button();
 
-    bool Update ( int mousePosX, int mousePosY, bool mouseIsPressed);
-    void Render ();
+    bool update ( int mousePosX, int mousePosY, bool mouseIsPressed);
+    void render ();
 
 private:
     ButtonState m_eCurrentState;
@@ -32,7 +33,7 @@ private:
     int         m_iPosY;
     int         m_iWidth;
     int         m_iHeight;
-    Sprite      m_oNormal;
-    Sprite      m_pPressed;
+    IMAGE_NAME  m_eStateNormal;
+    IMAGE_NAME  m_eStatePressed;
 };
 

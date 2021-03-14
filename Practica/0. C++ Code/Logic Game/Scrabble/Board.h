@@ -15,7 +15,6 @@
 
 #include "../joc.h"
 #include "Cell.h"
-#include "TileRenderer.h"
 #include "Dictionary.h"
 
 using namespace std;
@@ -47,10 +46,10 @@ class BoardPosition {
 public:
     BoardPosition(): m_iRow(-1), m_iCol(-1) {}
     BoardPosition(int col, int row): m_iRow(row), m_iCol(col) {}
-    int     GetCol  () {return m_iCol;}
-    int     GetRow  () {return m_iRow;}
-    void    SetCol  (int col) {m_iCol = col;}
-    void    SetRow  (int row) {m_iRow = row;}
+    int     getCol  () {return m_iCol;}
+    int     getRow  () {return m_iRow;}
+    void    setCol  (int col) {m_iCol = col;}
+    void    setRow  (int row) {m_iRow = row;}
 private:
     int m_iRow;
     int m_iCol;
@@ -66,16 +65,16 @@ public:
     Board();
     ~Board();
     
-    PositionResult  SetTile                 (Tile &tile, int posX, int posY,
+    PositionResult  setTile                 (Tile &tile, int posX, int posY,
                                              BoardPosition& boardPos);
-    bool            CheckNewWords           (int& points);
-    bool            CheckPosition           (std::string& errorMsg);
-    void            Render                  (TileRenderer& renderer);
-    void            RemoveCurrentWord       ();
-    void            RemoveLetter            (BoardPosition boardPos);
-    vector<string>  GetWrongWords           () {return m_aWrongWords;}
-    void            SendCurrentWordToBoard  ();
-    int             GetScoreCurrentWord     () {return m_iTotalScore;}
+    bool            checkNewWords           (int& points);
+    bool            checkPosition           (std::string& errorMsg);
+    void            render                  ();
+    void            removeCurrentWord       ();
+    void            removeLetter            (BoardPosition boardPos);
+    vector<string>  getWrongWords           () {return m_aWrongWords;}
+    void            sendCurrentWordToBoard  ();
+    int             getScoreCurrentWord     () {return m_iTotalScore;}
     
 private:
     Cell                m_aCells[BOARD_COLS_AND_ROWS][BOARD_COLS_AND_ROWS];
@@ -95,12 +94,12 @@ private:
     
     //Internal functions:
     
-    void            FinishSearchInLine  ();
-    void            ReadCell            (int col, int row);
-    void            ResetWord           ();
-    void            SearchForNewWords   ();
-    void            SearchForWrongWords ();
-    bool            IsInTheCurrentWord  (int col, int row);
+    void            finishSearchInLine  ();
+    void            readCell            (int col, int row);
+    void            resetWord           ();
+    void            searchForNewWords   ();
+    void            searchForWrongWords ();
+    bool            isInTheCurrentWord  (int col, int row);
     
 };
 
