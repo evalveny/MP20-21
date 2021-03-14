@@ -7,7 +7,7 @@
 //
 
 #include "PlayerTile.h"
-#include "GraphicManager.h"
+#include "../GraphicManager.h"
 
 PlayerTile::PlayerTile(){
     m_bIsOnBoard = false;

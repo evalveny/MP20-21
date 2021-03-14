@@ -7,7 +7,7 @@
 //
 
 #include "Cell.h"
-#include "GraphicManager.h"
+#include "../GraphicManager.h"
 
 void Cell::render (int pos_x, int pos_y){
     if (!m_bEmpty){
