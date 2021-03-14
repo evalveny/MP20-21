@@ -57,7 +57,8 @@ float testDomino()
 	for (int i = 0; i < 7; i++)
 		for (int j = i; j < 7; j++)
 		{
-			inicialitzaFitxa(fitxesInicials[0][nFitxa], i, j);
+			fitxesInicials[0][nFitxa].valor1 = i;
+			fitxesInicials[0][nFitxa].valor2 = j;
 			nFitxa++;
 		}
 	nFitxa = 0;
