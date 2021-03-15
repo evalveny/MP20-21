@@ -7,3 +7,40 @@ v16
 *.exe
 *.exe
 *.exe
+Practica/1. Resources/Board.obj
+Practica/1. Resources/Button.obj
+Practica/1. Resources/Cell.obj
+Practica/1. Resources/debug.obj
+Practica/1. Resources/Dictionary.obj
+Practica/1. Resources/GraphicManager.obj
+Practica/1. Resources/image_png.obj
+Practica/1. Resources/joc.obj
+Practica/1. Resources/keyboard.obj
+Practica/1. Resources/LettersBag.obj
+Practica/1. Resources/main.obj
+Practica/1. Resources/mouse.obj
+Practica/1. Resources/MP_Practica.log
+Practica/1. Resources/MP_Practica.tlog/CL.command.1.tlog
+Practica/1. Resources/MP_Practica.tlog/CL.read.1.tlog
+Practica/1. Resources/MP_Practica.tlog/CL.write.1.tlog
+Practica/1. Resources/MP_Practica.tlog/link.command.1.tlog
+Practica/1. Resources/MP_Practica.tlog/link.read.1.tlog
+Practica/1. Resources/MP_Practica.tlog/link.write.1.tlog
+Practica/1. Resources/MP_Practica.tlog/MP_Practica.lastbuildstate
+Practica/1. Resources/NFont.obj
+Practica/1. Resources/Player.obj
+Practica/1. Resources/PlayerTile.obj
+Practica/1. Resources/ScrabbleGame.obj
+Practica/1. Resources/SDL_FontCache.obj
+Practica/1. Resources/sound.obj
+Practica/1. Resources/sprites.obj
+Practica/1. Resources/stb_vorbis.obj
+Practica/1. Resources/Tile.obj
+Practica/1. Resources/vc142.idb
+Practica/1. Resources/vc142.pdb
+Practica/1. Resources/video.obj
+Practica/2. Platforms/0. Windows Desktop/Program/MP_Practica.exe
+Practica/2. Platforms/0. Windows Desktop/Program/MP_Practica.ilk
+Practica/2. Platforms/0. Windows Desktop/Program/MP_Practica.pdb
+Practica/2. Platforms/0. Windows Desktop/Program/MP_Practica.exe
+Practica/1. Resources/WordFinder.obj
