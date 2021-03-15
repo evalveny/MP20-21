@@ -64,8 +64,8 @@
     <ClCompile Include="..\..\0. C++ Code\Logic Game\Scrabble\Tile.cpp">
       <Filter>Logic Game\Scrabble</Filter>
     </ClCompile>
-    <ClCompile Include="..\..\0. C++ Code\Logic Game\Scrabble\TileRenderer.cpp">
-      <Filter>Logic Game\Scrabble</Filter>
+    <ClCompile Include="..\..\0. C++ Code\Logic Game\GraphicManager.cpp">
+      <Filter>Logic Game</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -141,8 +141,8 @@
     <ClInclude Include="..\..\0. C++ Code\Logic Game\Scrabble\Tile.h">
       <Filter>Logic Game\Scrabble</Filter>
     </ClInclude>
-    <ClInclude Include="..\..\0. C++ Code\Logic Game\Scrabble\TileRenderer.h">
-      <Filter>Logic Game\Scrabble</Filter>
+    <ClInclude Include="..\..\0. C++ Code\Logic Game\GraphicManager.h">
+      <Filter>Logic Game</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>

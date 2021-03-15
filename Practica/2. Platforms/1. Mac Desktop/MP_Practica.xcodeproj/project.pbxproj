@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		1A10F1D425FCC7DF00EDD58D /* GraphicManager.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 1A10F1D225FCC7DF00EDD58D /* GraphicManager.cpp */; };
 		1A5F5CF425E3CD9B0025D5A9 /* Button.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 1A5F5CF325E3CD9B0025D5A9 /* Button.cpp */; };
 		1A6CB9F923C236E400AAED65 /* libpng.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1A6CB9F423C236B200AAED65 /* libpng.framework */; };
 		1A6CB9FA23C236E400AAED65 /* libpng.framework in Copy Bundle Frameworks */ = {isa = PBXBuildFile; fileRef = 1A6CB9F423C236B200AAED65 /* libpng.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
@@ -24,7 +25,6 @@
 		1A6CBA1A23C250E800AAED65 /* keyboard.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 1A6CBA1123C250E800AAED65 /* keyboard.cpp */; };
 		1A6CBA2A23C255E400AAED65 /* joc.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 1A6CBA1C23C255E400AAED65 /* joc.cpp */; };
 		1A6CBB2923C3CD7B00AAED65 /* main.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 1A6CBB2823C3CD7B00AAED65 /* main.cpp */; };
-		1A7E385625DA8113004CE1BC /* TileRenderer.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 1A7E385425DA8113004CE1BC /* TileRenderer.cpp */; };
 		1A7E385925DB8F46004CE1BC /* Dictionary.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 1A7E385725DB8F46004CE1BC /* Dictionary.cpp */; };
 		1A7FC32125E2467B006233BE /* PlayerTile.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 1A7FC31F25E2467B006233BE /* PlayerTile.cpp */; };
 		1A9B553A23CD7A41006ACC90 /* FreeType.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1A9B553623CD7A25006ACC90 /* FreeType.framework */; };
@@ -61,6 +61,8 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		1A10F1D225FCC7DF00EDD58D /* GraphicManager.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = GraphicManager.cpp; sourceTree = "<group>"; };
+		1A10F1D325FCC7DF00EDD58D /* GraphicManager.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = GraphicManager.h; sourceTree = "<group>"; };
 		1A5F5CF225E3CD9A0025D5A9 /* Button.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Button.h; sourceTree = "<group>"; };
 		1A5F5CF325E3CD9B0025D5A9 /* Button.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Button.cpp; sourceTree = "<group>"; };
 		1A6CB9F323C236B200AAED65 /* SDL2_image.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SDL2_image.framework; path = Frameworks/SDL2_image.framework; sourceTree = "<group>"; };
@@ -88,8 +90,6 @@
 		1A6CBA1C23C255E400AAED65 /* joc.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = joc.cpp; sourceTree = "<group>"; };
 		1A6CBA2323C255E400AAED65 /* joc.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = joc.h; sourceTree = "<group>"; };
 		1A6CBB2823C3CD7B00AAED65 /* main.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = main.cpp; sourceTree = "<group>"; };
-		1A7E385425DA8113004CE1BC /* TileRenderer.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = TileRenderer.cpp; sourceTree = "<group>"; };
-		1A7E385525DA8113004CE1BC /* TileRenderer.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TileRenderer.h; sourceTree = "<group>"; };
 		1A7E385725DB8F46004CE1BC /* Dictionary.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Dictionary.cpp; sourceTree = "<group>"; };
 		1A7E385825DB8F46004CE1BC /* Dictionary.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Dictionary.h; sourceTree = "<group>"; };
 		1A7FC31F25E2467B006233BE /* PlayerTile.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = PlayerTile.cpp; sourceTree = "<group>"; };
@@ -169,6 +169,8 @@
 				1A6CBB2823C3CD7B00AAED65 /* main.cpp */,
 				1A6CBA2323C255E400AAED65 /* joc.h */,
 				1A6CBA1C23C255E400AAED65 /* joc.cpp */,
+				1A10F1D325FCC7DF00EDD58D /* GraphicManager.h */,
+				1A10F1D225FCC7DF00EDD58D /* GraphicManager.cpp */,
 			);
 			name = "Logic Game";
 			path = "../../../0. C++ Code/Logic Game";
@@ -201,10 +203,8 @@
 				1AA6767E25D8FA6A002D05B0 /* Cell.cpp */,
 				1AA6768225D8FBD4002D05B0 /* Tile.h */,
 				1AA6768125D8FBD4002D05B0 /* Tile.cpp */,
-				1AA6768425D98835002D05B0 /* LettersBag.cpp */,
 				1AA6768525D98835002D05B0 /* LettersBag.h */,
-				1A7E385425DA8113004CE1BC /* TileRenderer.cpp */,
-				1A7E385525DA8113004CE1BC /* TileRenderer.h */,
+				1AA6768425D98835002D05B0 /* LettersBag.cpp */,
 				1AEB9AB425E0E8CA00DFFBD1 /* Player.h */,
 				1AEB9AB325E0E8CA00DFFBD1 /* Player.cpp */,
 				1A7FC32025E2467B006233BE /* PlayerTile.h */,
@@ -217,7 +217,7 @@
 			isa = PBXGroup;
 			children = (
 				C96F46902048789F002630EE /* Frameworks */,
-				C923A75A2045D22F008E51CD /* Letris */,
+				C923A75A2045D22F008E51CD /* Scrabble */,
 				C923A7592045D22F008E51CD /* Products */,
 			);
 			sourceTree = "<group>";
@@ -230,7 +230,7 @@
 			name = Products;
 			sourceTree = "<group>";
 		};
-		C923A75A2045D22F008E51CD /* Letris */ = {
+		C923A75A2045D22F008E51CD /* Scrabble */ = {
 			isa = PBXGroup;
 			children = (
 				1A6CBA1B23C255E400AAED65 /* Logic Game */,
@@ -238,7 +238,7 @@
 				C923A7612045D22F008E51CD /* Assets.xcassets */,
 				C923A7662045D22F008E51CD /* Info.plist */,
 			);
-			path = Letris;
+			path = Scrabble;
 			sourceTree = "<group>";
 		};
 		C96F46902048789F002630EE /* Frameworks */ = {
@@ -346,10 +346,10 @@
 			files = (
 				1A6CBA2A23C255E400AAED65 /* joc.cpp in Sources */,
 				1A6CBA1323C250E800AAED65 /* sprites.cpp in Sources */,
+				1A10F1D425FCC7DF00EDD58D /* GraphicManager.cpp in Sources */,
 				1A6CBA1723C250E800AAED65 /* sound.cpp in Sources */,
 				1A6CBA1523C250E800AAED65 /* video.cpp in Sources */,
 				1AA6767D25D8EE68002D05B0 /* Board.cpp in Sources */,
-				1A7E385625DA8113004CE1BC /* TileRenderer.cpp in Sources */,
 				1A9B554523CE0591006ACC90 /* NFont.cpp in Sources */,
 				1A7E385925DB8F46004CE1BC /* Dictionary.cpp in Sources */,
 				1AA6767925D828C2002D05B0 /* ScrabbleGame.cpp in Sources */,
@@ -496,7 +496,7 @@
 					"$(PROJECT_DIR)/Frameworks",
 					"$(PROJECT_DIR)/Frameworks/SDL2_ttf.framework/Frameworks",
 				);
-				INFOPLIST_FILE = Letris/Info.plist;
+				INFOPLIST_FILE = Scrabble/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = cat.uab.letris;
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -515,7 +515,7 @@
 					"$(PROJECT_DIR)/Frameworks",
 					"$(PROJECT_DIR)/Frameworks/SDL2_ttf.framework/Frameworks",
 				);
-				INFOPLIST_FILE = Letris/Info.plist;
+				INFOPLIST_FILE = Scrabble/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = cat.uab.letris;
 				PRODUCT_NAME = "$(TARGET_NAME)";

@@ -3,24 +3,25 @@
 
 #include "Button.h"
 
-Button::Button( const string& path_normal,
-                const string& path_pressed,
-                int posX, int posY, int width, int height)
+Button::Button(IMAGE_NAME state_normal,
+               IMAGE_NAME state_pressed,
+               int posX, int posY,
+               int width, int height)
 {
     m_eCurrentState = NORMAL;
     m_iPosX = posX;
     m_iPosY = posY;
     m_iWidth = width;
     m_iHeight = height;
-    m_oNormal.create(path_normal.c_str());
-    m_pPressed.create(path_pressed.c_str());
+    m_eStateNormal = state_normal;
+    m_eStatePressed = state_pressed;
 }
 
 Button::~Button(){
 }
 
 
-bool Button::Update ( int mousePosX, int mousePosY, bool mouseIsPressed) {
+bool Button::update ( int mousePosX, int mousePosY, bool mouseIsPressed) {
 
     bool l_bDoAction = false;
     if (mousePosX >= m_iPosX && mousePosX <= m_iPosX + m_iWidth &&
@@ -40,13 +41,14 @@ bool Button::Update ( int mousePosX, int mousePosY, bool mouseIsPressed) {
     return l_bDoAction;
 }
 
-void Button::Render () {
+void Button::render () {
     switch (m_eCurrentState){
         case NORMAL:
-            m_oNormal.draw(m_iPosX, m_iPosY);
+            GraphicManager::getInstance()->drawSprite(m_eStateNormal,m_iPosX, m_iPosY);
             break;
         case PRESSED:
-            m_pPressed.draw(m_iPosX, m_iPosY);
+            GraphicManager::getInstance()->drawSprite(m_eStatePressed,m_iPosX, m_iPosY);
+            
             break;
         case NONE:
             //Nothing to do.

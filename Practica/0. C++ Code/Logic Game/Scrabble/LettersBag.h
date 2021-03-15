@@ -20,9 +20,9 @@ public:
     LettersBag();
     ~LettersBag();
     
-    Tile    GetLetter       ();
-    bool    IsEmpty         () {return m_aLetters.size() == 0;}
-    int     TilesInTheBag   () {return m_aLetters.size();}
+    Tile    getLetter       ();
+    bool    isEmpty         () {return m_aLetters.size() == 0;}
+    int     tilesInTheBag   () {return (int)m_aLetters.size();}
 private:
     vector<Tile>    m_aLetters;
 };

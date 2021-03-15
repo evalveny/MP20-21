@@ -11,7 +11,6 @@
 
 #include <stdio.h>
 #include "Board.h"
-#include "TileRenderer.h"
 #include "Player.h"
 #include "LettersBag.h"
 #include "Button.h"
@@ -27,15 +26,14 @@ public:
     ScrabbleGame();
     ~ScrabbleGame();
     
-    void UpdateAndRender    (int mousePosX, int mousePosY,
+    void updateAndRender    (int mousePosX, int mousePosY,
                              bool mouseIsPressed, bool mouseStatus,
                              float deltaTime);
     
-    void ChangePlayer       ();
-    bool HasAnyoneWon       (int& winner);
+    void changePlayer       ();
+    bool hasAnyoneWon       (int& winner);
     
 private:
-    TileRenderer    m_oTileRenderer;
     Board           m_oBoard;
     Player          m_aPlayers[NUM_PLAYERS];
     int             m_iCurrentPlayer;
@@ -44,10 +42,6 @@ private:
     Button          m_oButton_Shuffle;
     Button          m_oButton_Send;
     Button          m_oButton_Pass;
-    Sprite          m_oSpriteBackground;
-    NFont           m_oFont_Info;
-    NFont           m_oFont_CorrectMove;
-    NFont           m_oFont_IncorrectMove;
     string          m_sCorrectMove;
     string          m_sIncorrectMove;
     

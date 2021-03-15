@@ -8,11 +8,8 @@
 
 #include "ScrabbleGame.h"
 #include "Player.h"
-/*
- Button( const string& path_normal,
-         const string& path_pressed,
-         int posX, int posY, int width, int height);
- */
+#include "../GraphicManager.h"
+
 const int SIZE_BUTTON_RECALL = 100;
 const int SIZE_BUTTON_SHUFFLE = 100;
 
@@ -22,37 +19,33 @@ const int SIZE_W_BUTTON_PASS = 139;
 const int SIZE_H_BUTTON_PASS = 100;
 
 ScrabbleGame::ScrabbleGame()
-: m_oButton_Recall("data/GUI/recall_normal.png", "data/GUI/recall_pressed.png",
+: m_oButton_Recall(IMAGE_BUTTON_RECALL_NORMAL, IMAGE_BUTTON_RECALL_PRESSED,
                    SCREEN_SIZE_X*0.5 - SIZE_W_BUTTON_SEND*0.5 - SIZE_BUTTON_RECALL - 10, //X, Y, WIDTH, HEIGHT
                    SCREEN_SIZE_Y - SIZE_BUTTON_RECALL,
                    SIZE_BUTTON_RECALL,
                    SIZE_BUTTON_RECALL)
-, m_oButton_Shuffle("data/GUI/shuffle_normal.png", "data/GUI/shuffle_pressed.png",
+, m_oButton_Shuffle(IMAGE_BUTTON_SHUFFLE_NORMAL, IMAGE_BUTTON_SHUFFLE_PRESSED,
                     SCREEN_SIZE_X*0.5 + SIZE_W_BUTTON_SEND*0.5 + 10,
                     SCREEN_SIZE_Y - SIZE_BUTTON_SHUFFLE,
                     SIZE_BUTTON_SHUFFLE,
                     SIZE_BUTTON_SHUFFLE)
-, m_oButton_Send("data/GUI/send_normal.png", "data/GUI/send_pressed.png",
+, m_oButton_Send(IMAGE_BUTTON_SEND_NORMAL, IMAGE_BUTTON_SEND_PRESSED,
                  SCREEN_SIZE_X*0.5 - SIZE_W_BUTTON_SEND*0.5,
                  SCREEN_SIZE_Y - SIZE_H_BUTTON_SEND,
                  SIZE_W_BUTTON_SEND,
                  SIZE_H_BUTTON_SEND)
-, m_oButton_Pass("data/GUI/pass_normal.png", "data/GUI/pass_pressed.png",
+, m_oButton_Pass(IMAGE_BUTTON_PASS_NORMAL, IMAGE_BUTTON_PASS_PRESSED,
                  SCREEN_SIZE_X*0.5 - SIZE_W_BUTTON_SEND*0.5,
                  SCREEN_SIZE_Y - SIZE_H_BUTTON_SEND,
                  SIZE_W_BUTTON_PASS,
                  SIZE_H_BUTTON_PASS)
-, m_oSpriteBackground("data/GUI/background.png")
-, m_oFont_Info("data/Fonts/FreeSans.ttf", 30, NFont::Color(255,255,255,255))
-, m_oFont_IncorrectMove("data/Fonts/FreeSans.ttf", 30, NFont::Color(255,0,0,255))
-, m_oFont_CorrectMove("data/Fonts/FreeSans.ttf", 30, NFont::Color(0,255,0,255))
 , m_iCurrentPlayer(0)
 {
     m_sCorrectMove = "";
     m_sIncorrectMove = "";
     
     for (int i = 0 ; i < NUM_PLAYERS; i++){
-        m_aPlayers[i].AddTiles(m_oLettersBag);
+        m_aPlayers[i].addTiles(m_oLettersBag);
     }
 }
 
@@ -60,97 +53,106 @@ ScrabbleGame::~ScrabbleGame(){
     
 }
 
-void ScrabbleGame::ChangePlayer (){
+void ScrabbleGame::changePlayer (){
     m_sCorrectMove = "";
     m_sIncorrectMove = "";
     m_iCurrentPlayer = (m_iCurrentPlayer + 1) % NUM_PLAYERS;
 }
 
-void ScrabbleGame::UpdateAndRender (int mousePosX, int mousePosY,
+void ScrabbleGame::updateAndRender (int mousePosX, int mousePosY,
                                     bool mouseIsPressed, bool mouseStatus,
                                     float deltaTime){
     
     
     //--------UPDATE ----
-    m_aPlayers[m_iCurrentPlayer].Update(mousePosX, mousePosY,
+    m_aPlayers[m_iCurrentPlayer].update(mousePosX, mousePosY,
                      mouseIsPressed, mouseStatus,
                      deltaTime, m_oBoard, m_sCorrectMove, m_sIncorrectMove);
     
     
-    if (m_oButton_Recall.Update(mousePosX, mousePosY, mouseStatus)){
-        m_aPlayers[m_iCurrentPlayer].Recall();
-        m_oBoard.RemoveCurrentWord();
+    if (m_oButton_Recall.update(mousePosX, mousePosY, mouseStatus)){
+        m_aPlayers[m_iCurrentPlayer].recall();
+        m_oBoard.removeCurrentWord();
         m_sCorrectMove = "";
         m_sIncorrectMove = "";
     }
-    if (m_oButton_Shuffle.Update(mousePosX, mousePosY, mouseStatus)){
-        m_aPlayers[m_iCurrentPlayer].Suffle();
+    if (m_oButton_Shuffle.update(mousePosX, mousePosY, mouseStatus)){
+        m_aPlayers[m_iCurrentPlayer].shuffle();
     }
     
-    if (m_aPlayers[m_iCurrentPlayer].AnyTileOnTheBoard()){
-        if (m_oButton_Send.Update(mousePosX, mousePosY, mouseStatus)){
+    if (m_aPlayers[m_iCurrentPlayer].anyTileOnTheBoard()){
+        if (m_oButton_Send.update(mousePosX, mousePosY, mouseStatus)){
             if (m_sIncorrectMove.compare("")==0){
-                m_aPlayers[m_iCurrentPlayer].SendCurrentWordToBoard(m_oBoard);
-                m_aPlayers[m_iCurrentPlayer].AddTiles(m_oLettersBag);
+                m_aPlayers[m_iCurrentPlayer].sendCurrentWordToBoard(m_oBoard);
+                m_aPlayers[m_iCurrentPlayer].addTiles(m_oLettersBag);
                 
-                ChangePlayer();
+                changePlayer();
                 m_sCorrectMove = "";
                 m_sIncorrectMove = "";
             }
         }
     }else{
-        if (m_oButton_Pass.Update(mousePosX, mousePosY, mouseStatus)){
-            ChangePlayer();
+        if (m_oButton_Pass.update(mousePosX, mousePosY, mouseStatus)){
+            changePlayer();
         }
     }
     
     
     //--------RENDER ----
-    m_oSpriteBackground.draw(0,0);
     
-    m_oBoard.Render(m_oTileRenderer);
+    GraphicManager::getInstance()->drawSprite(IMAGE_BACKGROUND,0,0);
     
-    m_oButton_Recall.Render();
-    m_oButton_Shuffle.Render();
     
-    if (m_aPlayers[m_iCurrentPlayer].AnyTileOnTheBoard()){
-        m_oButton_Send.Render();
+    m_oBoard.render();
+    
+    m_oButton_Recall.render();
+    m_oButton_Shuffle.render();
+    
+    if (m_aPlayers[m_iCurrentPlayer].anyTileOnTheBoard()){
+        m_oButton_Send.render();
     }else{
-        m_oButton_Pass.Render();
+        m_oButton_Pass.render();
     }
     
     
-    m_aPlayers[m_iCurrentPlayer].Render(m_oTileRenderer);
+    m_aPlayers[m_iCurrentPlayer].render();
     
-    NFont::Rectf rect = m_oFont_Info.draw(50, 0, NFont::Scale(0.7), "Player turn: %d", m_iCurrentPlayer+1);
+    NFont::Rectf rect  = GraphicManager::getInstance()->drawFont(FONT_WHITE_30, 50, 0, 0.7, "Player turn: " + to_string(m_iCurrentPlayer+1));
     int posX_MoveMsg = 50 + rect.w + 10;
-    m_oFont_IncorrectMove.draw(posX_MoveMsg, 0, NFont::Scale(0.7), "%s", m_sIncorrectMove.c_str());
-    m_oFont_CorrectMove.draw(posX_MoveMsg, 0, NFont::Scale(0.7), "%s", m_sCorrectMove.c_str());
+    GraphicManager::getInstance()->drawFont(FONT_WHITE_30, 50, 0, 0.7, "Player turn: " + to_string(m_iCurrentPlayer+1));
+    GraphicManager::getInstance()->drawFont(FONT_RED_30, posX_MoveMsg, 0, 0.7, m_sIncorrectMove);
+    GraphicManager::getInstance()->drawFont(FONT_GREEN_30, posX_MoveMsg, 0, 0.7, m_sCorrectMove);
     
+    string msg = "";
     int posY = BOARD_POS_Y + BOARD_SIZE + PLAYER_TILE_SIZE+15;
     for (int i = 0; i < NUM_PLAYERS; i++){
-        NFont::Rectf rect = m_oFont_Info.draw(0, posY, NFont::Scale(0.6), "Score Player %d = %d", i+1, m_aPlayers[i].GetScore());
+        msg = "Score Player " + to_string(i+1) +  " =" + to_string(m_aPlayers[i].getScore());
+        NFont::Rectf rect = GraphicManager::getInstance()->drawFont(FONT_WHITE_30, 0, posY, 0.6, msg);
         posY += rect.h;
     }
     
     posY = BOARD_POS_Y + BOARD_SIZE + PLAYER_TILE_SIZE+15;
-    m_oFont_Info.draw(SCREEN_SIZE_X - 200, posY, NFont::Scale(0.6), "Tiles in the bag: %d", m_oLettersBag.TilesInTheBag());
- 
+    msg = "Tiles in the bag: " + to_string(m_oLettersBag.tilesInTheBag());
+    GraphicManager::getInstance()->drawFont(FONT_WHITE_30, SCREEN_SIZE_X-200, posY, 0.6, msg);
+    
     int winner = -1;
-    if (HasAnyoneWon(winner)){
-        m_oFont_Info.draw(BOARD_POS_X*0.5, SCREEN_SIZE_Y*0.5f, NFont::Scale(2.0), "Player %d is the winner", winner+1);
+    if (hasAnyoneWon(winner)){
+        msg = "Player " + to_string(winner+1 )+ " is the winner";
+        GraphicManager::getInstance()->drawFont(FONT_GREEN_30,BOARD_POS_X*0.5, SCREEN_SIZE_Y*0.5f, 1.5, msg);
+        
+        
     }
     
     
 }
 
 
-bool ScrabbleGame::HasAnyoneWon (int& winner){
+bool ScrabbleGame::hasAnyoneWon (int& winner){
     bool hasAnyoneWon = false;
     winner = 0;
     
     while(!hasAnyoneWon && winner < NUM_PLAYERS){
-        if (m_aPlayers[winner].AllTilesPlayed()){
+        if (m_aPlayers[winner].allTilesPlayed()){
             hasAnyoneWon = true;
         }else{
             winner++;
