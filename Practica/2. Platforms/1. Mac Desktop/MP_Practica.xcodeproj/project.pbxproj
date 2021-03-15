@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		1A10F1D425FCC7DF00EDD58D /* GraphicManager.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 1A10F1D225FCC7DF00EDD58D /* GraphicManager.cpp */; };
+		1A10F1D725FE58D100EDD58D /* WordFinder.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 1A10F1D525FE58D100EDD58D /* WordFinder.cpp */; };
 		1A5F5CF425E3CD9B0025D5A9 /* Button.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 1A5F5CF325E3CD9B0025D5A9 /* Button.cpp */; };
 		1A6CB9F923C236E400AAED65 /* libpng.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1A6CB9F423C236B200AAED65 /* libpng.framework */; };
 		1A6CB9FA23C236E400AAED65 /* libpng.framework in Copy Bundle Frameworks */ = {isa = PBXBuildFile; fileRef = 1A6CB9F423C236B200AAED65 /* libpng.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
@@ -63,6 +64,10 @@
 /* Begin PBXFileReference section */
 		1A10F1D225FCC7DF00EDD58D /* GraphicManager.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = GraphicManager.cpp; sourceTree = "<group>"; };
 		1A10F1D325FCC7DF00EDD58D /* GraphicManager.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = GraphicManager.h; sourceTree = "<group>"; };
+		1A10F1D525FE58D100EDD58D /* WordFinder.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = WordFinder.cpp; sourceTree = "<group>"; };
+		1A10F1D625FE58D100EDD58D /* WordFinder.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = WordFinder.h; sourceTree = "<group>"; };
+		1A10F1D925FE5C7800EDD58D /* BoardPosition.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = BoardPosition.h; sourceTree = "<group>"; };
+		1A10F1DB25FE600500EDD58D /* Scrabble.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Scrabble.h; sourceTree = "<group>"; };
 		1A5F5CF225E3CD9A0025D5A9 /* Button.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Button.h; sourceTree = "<group>"; };
 		1A5F5CF325E3CD9B0025D5A9 /* Button.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Button.cpp; sourceTree = "<group>"; };
 		1A6CB9F323C236B200AAED65 /* SDL2_image.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SDL2_image.framework; path = Frameworks/SDL2_image.framework; sourceTree = "<group>"; };
@@ -191,12 +196,16 @@
 		1AA6767A25D8EE45002D05B0 /* Scrabble */ = {
 			isa = PBXGroup;
 			children = (
+				1A10F1DB25FE600500EDD58D /* Scrabble.h */,
 				1A5F5CF225E3CD9A0025D5A9 /* Button.h */,
 				1A5F5CF325E3CD9B0025D5A9 /* Button.cpp */,
 				1A7E385825DB8F46004CE1BC /* Dictionary.h */,
 				1A7E385725DB8F46004CE1BC /* Dictionary.cpp */,
 				1AA6767825D828C2002D05B0 /* ScrabbleGame.h */,
 				1AA6767725D828C2002D05B0 /* ScrabbleGame.cpp */,
+				1A10F1D925FE5C7800EDD58D /* BoardPosition.h */,
+				1A10F1D625FE58D100EDD58D /* WordFinder.h */,
+				1A10F1D525FE58D100EDD58D /* WordFinder.cpp */,
 				1AA6767C25D8EE68002D05B0 /* Board.h */,
 				1AA6767B25D8EE68002D05B0 /* Board.cpp */,
 				1AA6767F25D8FA6A002D05B0 /* Cell.h */,
@@ -355,6 +364,7 @@
 				1AA6767925D828C2002D05B0 /* ScrabbleGame.cpp in Sources */,
 				1A7FC32125E2467B006233BE /* PlayerTile.cpp in Sources */,
 				1A6CBA1923C250E800AAED65 /* stb_vorbis.cpp in Sources */,
+				1A10F1D725FE58D100EDD58D /* WordFinder.cpp in Sources */,
 				1AA6768325D8FBD4002D05B0 /* Tile.cpp in Sources */,
 				1AA6768625D98835002D05B0 /* LettersBag.cpp in Sources */,
 				1A6CBA1823C250E800AAED65 /* image_png.cpp in Sources */,

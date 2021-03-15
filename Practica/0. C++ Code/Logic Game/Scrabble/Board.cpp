@@ -60,7 +60,6 @@ void Board::render () {
                                   BOARD_POS_Y + j*BOARD_TILE_SIZE);
         }
     }
-    
 }
 
 void Board::sendCurrentWordToBoard () {
@@ -71,7 +70,7 @@ void Board::sendCurrentWordToBoard () {
     }
     m_aCurrentWord.clear();
     m_bIsFirstWord = false;
-    m_iTotalScore = 0;
+    m_oWordFinder.resetTotalScore();
 }
 
 PositionResult Board::setTile (Tile &tile,
@@ -103,103 +102,12 @@ PositionResult Board::setTile (Tile &tile,
     return result;
 }
 
-bool Board::isInTheCurrentWord (int col, int row){
-    bool isTheCurrentWord = false;
-    int i = 0;
-    while(!isTheCurrentWord && i < m_aCurrentWord.size()){
-        isTheCurrentWord = m_aCurrentWord[i].getCol() == col && m_aCurrentWord[i].getRow() == row;
-        i++;
-    }
-    return isTheCurrentWord;
-}
-
-
-
-void Board::resetWord (){
-    m_sNewWord = "";
-    m_bHasLetterOfCurrentWord = false;
-    m_iScoreOfNewWord = 0;
-    m_iMultiplyFactorOfNewWord = 1;
-}
-
-
-void Board::finishSearchInLine () {
-    if (m_bHasLetterOfCurrentWord && m_sNewWord.length() > 1){
-        m_aNewWords.push_back(m_sNewWord);
-        m_iTotalScore += m_iScoreOfNewWord * m_iMultiplyFactorOfNewWord;
-    }
-}
-
-void Board::readCell (int col, int row) {
-    m_bHasLetterOfCurrentWord = m_bHasLetterOfCurrentWord || isInTheCurrentWord(col, row);
-    if( !m_aCells[col][row].isEmpty()){
-        m_sNewWord += m_aCells[col][row].getTile().getLetter();
-        int letterScore= m_aCells[col][row].getTile().getScore();
-        switch (m_aCells[col][row].getScoreEffect()) {
-            case DL:
-                letterScore *= 2;
-                break;
-            case TL:
-                letterScore *= 2;
-                break;
-            case DW:
-                m_iMultiplyFactorOfNewWord *= 2;
-                break;
-            case TW:
-                m_iMultiplyFactorOfNewWord *= 3;
-                break;
-            default:
-                break;
-        }
-        m_iScoreOfNewWord += letterScore;
-        
-    }else{
-        if (m_bHasLetterOfCurrentWord && m_sNewWord.length() > 1){
-            m_aNewWords.push_back(m_sNewWord);
-            m_iTotalScore += m_iScoreOfNewWord * m_iMultiplyFactorOfNewWord;
-        }
-        resetWord();
-    }
-}
-
-void Board::searchForNewWords () {
-    m_aNewWords.clear();
-    m_iTotalScore = 0;
-    
-    //Horizontal sweep:
-    for(int row = 0; row < BOARD_COLS_AND_ROWS; row++){
-        resetWord();
-        for(int col = 0; col < BOARD_COLS_AND_ROWS; col++){
-            //For each row we make a Horizontal sweep:
-            readCell(col,row);
-        }
-        finishSearchInLine();
-    }
-    
-    //Vertical sweep:
-    for(int col = 0; col < BOARD_COLS_AND_ROWS; col++){
-        resetWord();
-        for(int row = 0; row < BOARD_COLS_AND_ROWS; row++){
-            //For each row we make a Horizontal sweep:
-            readCell(col,row);
-        }
-        finishSearchInLine();
-    }
-    
-    //Print word list to console:
-    cout << "---------------------------"<<endl;
-    cout << "    List of new words"<< endl;
-    cout << "---------------------------"<<endl;
-    for (int i = 0; i < m_aNewWords.size(); i++){
-        cout << "- " << m_aNewWords[i] << endl;;
-    }
-    
-}
 void Board::searchForWrongWords()
 {
     m_aWrongWords.clear();
-    vector<string>::iterator it = m_aNewWords.begin();
-    vector<string>::iterator itEnd = m_aNewWords.end();
+    vector<string> newWords = m_oWordFinder.getNewWords();
+    vector<string>::iterator it = newWords.begin();
+    vector<string>::iterator itEnd = newWords.end();
     for(;it != itEnd; it++){
         if (!m_oDictionary.check(*it)){
             m_aWrongWords.push_back(*it);
@@ -323,12 +231,12 @@ bool Board::checkPosition (std::string& errorMsg){
 bool Board::checkNewWords (int& points) {
     bool isCorrect = false;
     
-    searchForNewWords();
+    m_oWordFinder.searchForAllNewWords(m_aCells, m_aCurrentWord);
     searchForWrongWords();
     
     if (m_aWrongWords.size() == 0){
         isCorrect = true;
-        points = m_iTotalScore;
+        points = m_oWordFinder.getTotalScore();
     }
     
     return isCorrect;
