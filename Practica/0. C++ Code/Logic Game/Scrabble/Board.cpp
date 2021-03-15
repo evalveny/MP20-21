@@ -26,11 +26,11 @@ Board::Board()
         {
             boardFile >> x >> y >> effect;
             ScoreEffect score_effect;
-            if (effect.compare("DL")){
+            if (effect.compare("DL") == 0){
                 score_effect = DL;
-            }else if (effect.compare("TL")){
+            }else if (effect.compare("TL") == 0){
                 score_effect = TL;
-            }else if (effect.compare("DW")){
+            }else if (effect.compare("DW") == 0){
                 score_effect = DW;
             }else {
                 score_effect = TW;
