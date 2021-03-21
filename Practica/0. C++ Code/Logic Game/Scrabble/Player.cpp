@@ -72,8 +72,21 @@ void Player::update (int mousePosX, int mousePosY,
         if (!mouseStatus){
             m_bIsDragging = false;
             BoardPosition boardPos;
-            PositionResult result = board.setTile(m_aTiles[m_iTileDragging].getTile(), mousePosX, mousePosY, boardPos);
             
+            PositionResult result;
+            //Convert pixel position in Column, Row-->
+            if (mousePosX < BOARD_POS_X || mousePosX > BOARD_POS_X + BOARD_SIZE){
+                result = INVALID_POSITION;
+            }else if (mousePosY < BOARD_POS_Y || mousePosY > BOARD_POS_Y + BOARD_SIZE){
+                result = INVALID_POSITION;
+            }else{
+                float cellSize = BOARD_SIZE / BOARD_COLS_AND_ROWS;
+                int col = int((mousePosX - BOARD_POS_X)/cellSize);
+                int row = int((mousePosY - BOARD_POS_Y)/cellSize);
+                boardPos.setCol(col);
+                boardPos.setRow(row);
+                result = board.setTile(m_aTiles[m_iTileDragging].getTile(), boardPos);
+            }
             switch (result){
                 case INVALID_POSITION:
                     m_aTiles[m_iTileDragging].setPosition(
@@ -142,19 +155,34 @@ void Player::checkBoard(Board & board,
                         std::string& incorrectMove){
     
     int points = 0;
-    std::string errorMsg = "";
-    if (!board.checkPosition(errorMsg))
-    {
-        correctMove = "";
-        incorrectMove = errorMsg;
-    }else{
-        if (board.checkNewWords(points)){
+    
+    std::vector<std::string> wrongWords;
+    CurrentWordResult result = board.checkCurrentWord(points, wrongWords);
+    switch(result){
+        case INVALID_NOT_ALIGNED:
+            correctMove = "";
+            incorrectMove = "Tiles must be vertically or horizontally aligned and together.";
+            break;
+        case INVALID_NOT_CONNECTION:
+            correctMove = "";
+            incorrectMove = "At least one letter must be next to the rest of the words.";
+            break;
+        case INVALID_WORDS_NOT_IN_DICTIONARY:
+            correctMove = "";
+            incorrectMove = "The new words are not in the dictionary: " + board.getWrongWords()[0];
+            break;
+        case INVALID_WORD_OF_ONE_LETTER:
+            correctMove = "";
+            incorrectMove = "Only words of two or more letters.";
+            break;
+        case INVALID_START_NOT_IN_CENTER:
+            correctMove = "";
+            incorrectMove = "You have to start using the center position.";
+            break;
+        case ALL_CORRECT:
             correctMove = "Points: " + std::to_string(points);
             incorrectMove = "";
-        }else{
-            correctMove = "";
-            incorrectMove = board.getWrongWords()[0];
-        }
+            break;
     }
 }
 

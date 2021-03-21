@@ -31,8 +31,9 @@ void WordFinder::searchForAllNewWords (Cell cells[][BOARD_COLS_AND_ROWS],
     //Horizontal sweep:
     for(int row = 0; row < BOARD_COLS_AND_ROWS; row++){
         resetWord();
+        //For each row we make a Horizontal sweep:
         for(int col = 0; col < BOARD_COLS_AND_ROWS; col++){
-            //For each row we make a Horizontal sweep:
+            
             readCell(cells, col,row, currentWord);
         }
         finishSearchInLine();
@@ -41,8 +42,9 @@ void WordFinder::searchForAllNewWords (Cell cells[][BOARD_COLS_AND_ROWS],
     //Vertical sweep:
     for(int col = 0; col < BOARD_COLS_AND_ROWS; col++){
         resetWord();
+        //For each column we make a Vertical sweep:
         for(int row = 0; row < BOARD_COLS_AND_ROWS; row++){
-            //For each row we make a Horizontal sweep:
+            
             readCell(cells, col,row, currentWord);
         }
         finishSearchInLine();

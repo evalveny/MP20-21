@@ -65,6 +65,9 @@ string GraphicManager::getImagePath(IMAGE_NAME name){
         path = "data/Letters/Big/" + to_string(name - 26) + ".png";
     }else{
         switch (name) {
+            case IMAGE_BOARD:
+                path = "data/GUI/game-board.png";
+                break;
             case IMAGE_BACKGROUND:
                 path = "data/GUI/background.png";
                 break;

@@ -36,8 +36,21 @@ typedef enum {
     NOT_EMPTY
 } PositionResult;
 
-
+typedef enum {
+    ALL_CORRECT = 0,
+    //Tiles must be vertically or horizontally aligned and together
+    INVALID_NOT_ALIGNED,
+    //At least one letter must be next to the rest of the words.
+    INVALID_NOT_CONNECTION,
+    //You have to start using the center position
+    INVALID_START_NOT_IN_CENTER,
+    //Only words of two or more letters
+    INVALID_WORD_OF_ONE_LETTER,
+    //The new words are not in the dictionary
+    INVALID_WORDS_NOT_IN_DICTIONARY,
+} CurrentWordResult;
 //-----------------------------
+
 
 
 
@@ -47,33 +60,26 @@ public:
     Board();
     ~Board();
     
-    PositionResult  setTile                 (Tile &tile, int posX, int posY,
-                                             BoardPosition& boardPos);
-    bool            checkNewWords           (int& points);
-    bool            checkPosition           (std::string& errorMsg);
-    void            render                  ();
-    void            removeCurrentWord       ();
-    void            removeLetter            (BoardPosition boardPos);
-    vector<string>  getWrongWords           () {return m_aWrongWords;}
-    void            sendCurrentWordToBoard  ();
-    int             getScoreCurrentWord     () {return m_oWordFinder.getTotalScore();}
+    //---- Primera entrega:
+    void                debugRender             ();
+    PositionResult      setTile                 (Tile &tile, const BoardPosition& boardPos);
+    CurrentWordResult   checkCurrentWord        (int& points, vector<string>& wrongWords);
+    void                sendCurrentWordToBoard  ();
+    void                removeCurrentWord       ();
+    //-------------------------
+    
+    void                render                  ();
+    void                removeLetter            (BoardPosition boardPos);
+    vector<string>      getWrongWords           () {return m_aWrongWords;}
+    int                 getScoreCurrentWord     () {return m_oWordFinder.getTotalScore();}
     
 private:
     Cell                m_aCells[BOARD_COLS_AND_ROWS][BOARD_COLS_AND_ROWS];
-    Sprite              m_oSprite_Board;
     Dictionary          m_oDictionary;
     WordFinder          m_oWordFinder;
     VectorOfPositions   m_aCurrentWord;
     bool                m_bIsFirstWord;
-    
-    //---Members for the search of new word:
-    
     vector<string>      m_aWrongWords;
-    
-    //Internal functions:
-    
-    void searchForWrongWords ();
-    
     
 };
 
