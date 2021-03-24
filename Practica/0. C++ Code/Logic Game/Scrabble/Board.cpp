@@ -10,7 +10,7 @@
 #include <algorithm>
 #include <iostream>
 #include <fstream>
-#include "GraphicManager.h"
+#include "..\GraphicManager.h"
 
 Board::Board()
 {
