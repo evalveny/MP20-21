@@ -15,8 +15,9 @@ bool WordFinder::isInTheCurrentWord (int col, int row,
                                      const VectorOfPositions& currentWord){
     bool isTheCurrentWord = false;
     int i = 0;
+    BoardPosition bp(col, row);
     while(!isTheCurrentWord && i < currentWord.size()){
-        isTheCurrentWord = currentWord[i].getCol() == col && currentWord[i].getRow() == row;
+        isTheCurrentWord = (currentWord[i] == bp);
         i++;
     }
     return isTheCurrentWord;
@@ -50,6 +51,7 @@ void WordFinder::searchForAllNewWords (Cell cells[][BOARD_COLS_AND_ROWS],
         finishSearchInLine();
     }
     
+    /*
     //Print word list to console:
     cout << "---------------------------"<<endl;
     cout << "    List of new words"<< endl;
@@ -57,6 +59,7 @@ void WordFinder::searchForAllNewWords (Cell cells[][BOARD_COLS_AND_ROWS],
     for (int i = 0; i < m_aNewWords.size(); i++){
         cout << "- " << m_aNewWords[i] << endl;;
     }
+     */
 }
 
 void WordFinder::resetWord (){
@@ -79,23 +82,29 @@ void WordFinder::readCell (Cell cells[][BOARD_COLS_AND_ROWS],
     m_bHasLetterOfCurrentWord = m_bHasLetterOfCurrentWord || isInTheCurrentWord(col, row, currentWord);
     if( !cells[col][row].isEmpty()){
         m_sNewWord += cells[col][row].getTile().getLetter();
-        int letterScore= cells[col][row].getTile().getScore();
-        switch (cells[col][row].getScoreEffect()) {
-            case DL:
-                letterScore *= 2;
-                break;
-            case TL:
-                letterScore *= 2;
-                break;
-            case DW:
-                m_iMultiplyFactorOfNewWord *= 2;
-                break;
-            case TW:
-                m_iMultiplyFactorOfNewWord *= 3;
-                break;
-            default:
-                break;
+        int letterScore = cells[col][row].getTile().getScore();
+        if( !cells[col][row].isTilePlayed()) {
+            switch (cells[col][row].getScoreEffect()) {
+                case DL:
+                    letterScore *= 2;
+                    break;
+                case TL:
+                    letterScore *= 3;
+                    break;
+                case DW:
+                    m_iMultiplyFactorOfNewWord *= 2;
+                    break;
+                case TW:
+                    m_iMultiplyFactorOfNewWord *= 3;
+                    break;
+                case NO_EFFECT:
+                    //Nothing to do.
+                    break;
+                default:
+                    break;
+            }
         }
+        
         m_iScoreOfNewWord += letterScore;
         
     }else{

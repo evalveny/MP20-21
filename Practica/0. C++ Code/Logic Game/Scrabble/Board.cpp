@@ -10,7 +10,7 @@
 #include <algorithm>
 #include <iostream>
 #include <fstream>
-#include "..\GraphicManager.h"
+#include "../GraphicManager.h"
 
 Board::Board()
 {
@@ -209,7 +209,6 @@ CurrentWordResult Board::checkCurrentWord (int& points, vector<string>& wrongWor
     
     points = m_oWordFinder.getTotalScore();
     return ALL_CORRECT;
-    
 }
 
 
