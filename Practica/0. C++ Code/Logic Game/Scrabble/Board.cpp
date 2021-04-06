@@ -8,7 +8,7 @@
 
 #include "Board.h"
 #include <algorithm>
-#include <iostream>
+    #include <iostream>
 #include <fstream>
 #include "..\GraphicManager.h"
 
