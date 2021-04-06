@@ -10,8 +10,8 @@
 #include <string>
 #include <map>
 #include <vector>
-#include "Board.h"
-#include "Tile.h"
+#include "./Scrabble/Board.h"
+#include "./Scrabble/Tile.h"
 
 using namespace std;
 

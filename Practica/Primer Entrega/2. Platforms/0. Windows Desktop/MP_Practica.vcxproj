@@ -148,56 +148,18 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
-    <ClCompile Include="..\..\0. C++ Code\Graphic Lib\debug.cpp" />
-    <ClCompile Include="..\..\0. C++ Code\Graphic Lib\image_png.cpp" />
-    <ClCompile Include="..\..\0. C++ Code\Graphic Lib\keyboard.cpp" />
-    <ClCompile Include="..\..\0. C++ Code\Graphic Lib\mouse.cpp" />
-    <ClCompile Include="..\..\0. C++ Code\Graphic Lib\NFont\NFont.cpp" />
-    <ClCompile Include="..\..\0. C++ Code\Graphic Lib\NFont\SDL_FontCache.c" />
-    <ClCompile Include="..\..\0. C++ Code\Graphic Lib\sound.cpp" />
-    <ClCompile Include="..\..\0. C++ Code\Graphic Lib\sprites.cpp" />
-    <ClCompile Include="..\..\0. C++ Code\Graphic Lib\stb_vorbis.cpp" />
-    <ClCompile Include="..\..\0. C++ Code\Graphic Lib\video.cpp" />
-    <ClCompile Include="..\..\0. C++ Code\Logic Game\GraphicManager.cpp" />
-    <ClCompile Include="..\..\0. C++ Code\Logic Game\joc.cpp" />
     <ClCompile Include="..\..\0. C++ Code\Logic Game\main.cpp" />
     <ClCompile Include="..\..\0. C++ Code\Logic Game\Scrabble\Board.cpp" />
-    <ClCompile Include="..\..\0. C++ Code\Logic Game\Scrabble\Button.cpp" />
     <ClCompile Include="..\..\0. C++ Code\Logic Game\Scrabble\Cell.cpp" />
     <ClCompile Include="..\..\0. C++ Code\Logic Game\Scrabble\Dictionary.cpp" />
-    <ClCompile Include="..\..\0. C++ Code\Logic Game\Scrabble\LettersBag.cpp" />
-    <ClCompile Include="..\..\0. C++ Code\Logic Game\Scrabble\Player.cpp" />
-    <ClCompile Include="..\..\0. C++ Code\Logic Game\Scrabble\PlayerTile.cpp" />
-    <ClCompile Include="..\..\0. C++ Code\Logic Game\Scrabble\ScrabbleGame.cpp" />
     <ClCompile Include="..\..\0. C++ Code\Logic Game\Scrabble\Tile.cpp" />
     <ClCompile Include="..\..\0. C++ Code\Logic Game\Scrabble\WordFinder.cpp" />
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="..\..\0. C++ Code\Graphic Lib\debug.h" />
-    <ClInclude Include="..\..\0. C++ Code\Graphic Lib\error.h" />
-    <ClInclude Include="..\..\0. C++ Code\Graphic Lib\image_png.h" />
-    <ClInclude Include="..\..\0. C++ Code\Graphic Lib\keyboard.h" />
-    <ClInclude Include="..\..\0. C++ Code\Graphic Lib\keyboard_sdl.h" />
-    <ClInclude Include="..\..\0. C++ Code\Graphic Lib\libreria.h" />
-    <ClInclude Include="..\..\0. C++ Code\Graphic Lib\mouse.h" />
-    <ClInclude Include="..\..\0. C++ Code\Graphic Lib\NFont\NFont.h" />
-    <ClInclude Include="..\..\0. C++ Code\Graphic Lib\NFont\NFont_gpu.h" />
-    <ClInclude Include="..\..\0. C++ Code\Graphic Lib\NFont\SDL_FontCache.h" />
-    <ClInclude Include="..\..\0. C++ Code\Graphic Lib\sound.h" />
-    <ClInclude Include="..\..\0. C++ Code\Graphic Lib\sprites.h" />
-    <ClInclude Include="..\..\0. C++ Code\Graphic Lib\stb_vorbis.h" />
-    <ClInclude Include="..\..\0. C++ Code\Graphic Lib\video.h" />
-    <ClInclude Include="..\..\0. C++ Code\Logic Game\GraphicManager.h" />
-    <ClInclude Include="..\..\0. C++ Code\Logic Game\joc.h" />
     <ClInclude Include="..\..\0. C++ Code\Logic Game\Scrabble\Board.h" />
     <ClInclude Include="..\..\0. C++ Code\Logic Game\Scrabble\BoardPosition.h" />
-    <ClInclude Include="..\..\0. C++ Code\Logic Game\Scrabble\Button.h" />
     <ClInclude Include="..\..\0. C++ Code\Logic Game\Scrabble\Cell.h" />
     <ClInclude Include="..\..\0. C++ Code\Logic Game\Scrabble\Dictionary.h" />
-    <ClInclude Include="..\..\0. C++ Code\Logic Game\Scrabble\LettersBag.h" />
-    <ClInclude Include="..\..\0. C++ Code\Logic Game\Scrabble\Player.h" />
-    <ClInclude Include="..\..\0. C++ Code\Logic Game\Scrabble\PlayerTile.h" />
-    <ClInclude Include="..\..\0. C++ Code\Logic Game\Scrabble\ScrabbleGame.h" />
     <ClInclude Include="..\..\0. C++ Code\Logic Game\Scrabble\Tile.h" />
     <ClInclude Include="..\..\0. C++ Code\Logic Game\Scrabble\WordFinder.h" />
   </ItemGroup>
