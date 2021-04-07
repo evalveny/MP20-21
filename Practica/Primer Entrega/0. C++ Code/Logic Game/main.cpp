@@ -80,7 +80,7 @@ string positionResult_to_string (PositionResult result) {
     string output = "";
     switch(result){
         case VALID_POSITION:
-            output = "VALID_POSITTIOIN";
+            output = "VALID_POSITION";
             break;
         case INVALID_POSITION:
             output = "INVALID_POSITION";
