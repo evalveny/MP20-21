@@ -19,7 +19,7 @@ bool comprovaTermini(const string& nomFitxerIn, const string& nomFitxerOut)
 	Data diaTermini = diaOriginal + nDies;
 
 	ofstream fitxerSortida;
-	fitxerSortida.open(nomFitxerOut);
+	fitxerSortida.open(nomFitxerOut, ofstream::app);
 	fitxerSortida << diaTermini.getDia() << " " << diaTermini.getMes() << " " << diaTermini.getAny();
 	fitxerSortida.close();
 
