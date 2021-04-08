@@ -94,7 +94,7 @@ PositionResult Board::setTile (Tile &tile, const BoardPosition& boardPos)
     return result;
 }
 
-CurrentWordResult Board::checkCurrentWord (int& points, vector<string>& wrongWords)
+CurrentWordResult Board::checkCurrentWord (int& points)
 {
     int center_coordinate = (int)BOARD_COLS_AND_ROWS/2;
     if (m_bIsFirstWord){
@@ -205,7 +205,6 @@ CurrentWordResult Board::checkCurrentWord (int& points, vector<string>& wrongWor
     }
     
     if (m_aWrongWords.size() != 0){
-        wrongWords = m_aWrongWords;
         return INVALID_WORDS_NOT_IN_DICTIONARY;
     }
     

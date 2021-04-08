@@ -63,7 +63,7 @@ public:
     
     void                debugRender             ();
     PositionResult      setTile                 (Tile &tile, const BoardPosition& boardPos);
-    CurrentWordResult   checkCurrentWord        (int& points, vector<string>& wrongWords);
+    CurrentWordResult   checkCurrentWord        (int& points);
     void                sendCurrentWordToBoard  ();
     void                removeCurrentWord       ();
     

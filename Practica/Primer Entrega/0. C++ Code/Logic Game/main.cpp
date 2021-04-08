@@ -230,7 +230,7 @@ float test_2_ParaulaInicial(map<char,Tile>& tiles)
     cout << "Comment :=>> ---------------------------------------------------" << endl;
     board.setTile(tiles['i'], BoardPosition(0, 0)); //BoardPosition(col, row)
     board.setTile(tiles['s'], BoardPosition(0, 1));
-    result = board.checkCurrentWord(npoints, wrongWords);
+    result = board.checkCurrentWord(npoints);
     valid_result = INVALID_START_NOT_IN_CENTER;
     compareWordResults(result, valid_result, 2, reduccio);
     
@@ -239,7 +239,7 @@ float test_2_ParaulaInicial(map<char,Tile>& tiles)
     cout << "Comment :=>> ------------------------------------------------------" << endl;
     board.setTile(tiles['i'], BoardPosition(0,14)); //BoardPosition(col, row)
     board.setTile(tiles['s'], BoardPosition(1,14));
-    result = board.checkCurrentWord(npoints, wrongWords);
+    result = board.checkCurrentWord(npoints);
     valid_result = INVALID_START_NOT_IN_CENTER;
     compareWordResults(result, valid_result, 2, reduccio);
     
@@ -248,7 +248,7 @@ float test_2_ParaulaInicial(map<char,Tile>& tiles)
     cout << "Comment :=>> 2.3 Inserint en el centre però llargària 1:" <<  endl;
     cout << "Comment :=>> -------------------------------------------" << endl;
     board.setTile(tiles['i'], BoardPosition(7,7));
-    result = board.checkCurrentWord(npoints, wrongWords);
+    result = board.checkCurrentWord(npoints);
     valid_result = INVALID_WORD_OF_ONE_LETTER;
     compareWordResults(result, valid_result, 2, reduccio);
     
@@ -282,7 +282,7 @@ float test_3_ParaulaNoAlDiccionari(map<char,Tile>& tiles)
     board.setTile(tiles['o'], BoardPosition(7,7));
     board.setTile(tiles['o'], BoardPosition(8,7));
     
-    result = board.checkCurrentWord(npoints, wrongWords);
+    result = board.checkCurrentWord(npoints);
     valid_result = INVALID_WORDS_NOT_IN_DICTIONARY;
     compareWordResults(result, valid_result, 2, reduccio);
     
@@ -299,7 +299,7 @@ float test_3_ParaulaNoAlDiccionari(map<char,Tile>& tiles)
     board.setTile(tiles['o'], BoardPosition(7,7));
     board.setTile(tiles['o'], BoardPosition(7,8));
     
-    result = board.checkCurrentWord(npoints, wrongWords);
+    result = board.checkCurrentWord(npoints);
     valid_result = INVALID_WORDS_NOT_IN_DICTIONARY;
     compareWordResults(result, valid_result, 2, reduccio);
     
@@ -332,7 +332,7 @@ float test_4_InserirSegonaParaula(map<char,Tile>& tiles)
     board.setTile(tiles['s'], BoardPosition(7,7));
     board.setTile(tiles['e'], BoardPosition(8,7));
     
-    result = board.checkCurrentWord(npoints, wrongWords);
+    result = board.checkCurrentWord(npoints);
     valid_result = ALL_CORRECT;
     compareWordResults(result, valid_result, 2, reduccio);
     board.sendCurrentWordToBoard();
@@ -350,7 +350,7 @@ float test_4_InserirSegonaParaula(map<char,Tile>& tiles)
     board.setTile(tiles['h'], BoardPosition(6,5));
     board.setTile(tiles['e'], BoardPosition(7,5));
     
-    result = board.checkCurrentWord(npoints, wrongWords);
+    result = board.checkCurrentWord(npoints);
     wordResultCannotBeValid(result, 2, reduccio);
     board.removeCurrentWord();
     
@@ -369,7 +369,7 @@ float test_4_InserirSegonaParaula(map<char,Tile>& tiles)
     board.setTile(tiles['h'], BoardPosition(3,4));
     board.setTile(tiles['e'], BoardPosition(3,5));
     
-    result = board.checkCurrentWord(npoints, wrongWords);
+    result = board.checkCurrentWord(npoints);
     wordResultCannotBeValid(result, 2, reduccio);
     board.removeCurrentWord();
     
@@ -388,7 +388,7 @@ float test_4_InserirSegonaParaula(map<char,Tile>& tiles)
     board.setTile(tiles['h'], BoardPosition(8,6));
     
     
-    result = board.checkCurrentWord(npoints, wrongWords);
+    result = board.checkCurrentWord(npoints);
     wordResultCannotBeValid(result, 2, reduccio);
     board.removeCurrentWord();
     
@@ -404,7 +404,7 @@ float test_4_InserirSegonaParaula(map<char,Tile>& tiles)
     board.setTile(tiles['s'], BoardPosition(8,5)); //BoardPosition(col, row)
     board.setTile(tiles['h'], BoardPosition(8,6));
     
-    result = board.checkCurrentWord(npoints, wrongWords);
+    result = board.checkCurrentWord(npoints);
     valid_result = ALL_CORRECT;
     compareWordResults(result, valid_result, 2, reduccio);
     board.sendCurrentWordToBoard();
@@ -427,7 +427,7 @@ float test_4_InserirSegonaParaula(map<char,Tile>& tiles)
     board.setTile(tiles['e'], BoardPosition(9,10));
     
     
-    result = board.checkCurrentWord(npoints, wrongWords);
+    result = board.checkCurrentWord(npoints);
     valid_result = ALL_CORRECT;
     compareWordResults(result, valid_result, 2, reduccio);
     board.sendCurrentWordToBoard();
@@ -447,7 +447,7 @@ float test_4_InserirSegonaParaula(map<char,Tile>& tiles)
     board.setTile(tiles['o'], BoardPosition(7,8));
     
     
-    result = board.checkCurrentWord(npoints, wrongWords);
+    result = board.checkCurrentWord(npoints);
     valid_result = ALL_CORRECT;
     compareWordResults(result, valid_result, 2, reduccio);
     board.sendCurrentWordToBoard();
@@ -502,7 +502,7 @@ float test_5_VerificarPuntuacio(map<char,Tile>& tiles)
     board.setTile(tiles['i'], BoardPosition(13,7));
     board.setTile(tiles['a'], BoardPosition(14,7));
     
-    board.checkCurrentWord(npoints, wrongWords);
+    board.checkCurrentWord(npoints);
     valid_result = 84;
     comparePointResults(npoints, valid_result, 2, reduccio);
     board.sendCurrentWordToBoard();
@@ -527,7 +527,7 @@ float test_5_VerificarPuntuacio(map<char,Tile>& tiles)
     board.setTile(tiles['e'], BoardPosition(9,10));
     
     
-    board.checkCurrentWord(npoints, wrongWords);
+    board.checkCurrentWord(npoints);
     valid_result = 16;
     comparePointResults(npoints, valid_result, 2, reduccio);
     board.sendCurrentWordToBoard();
@@ -548,7 +548,7 @@ float test_5_VerificarPuntuacio(map<char,Tile>& tiles)
     board.setTile(tiles['x'], BoardPosition(10,10)); //BoardPosition(col, row)
     
     
-    board.checkCurrentWord(npoints, wrongWords);
+    board.checkCurrentWord(npoints);
     valid_result = 38;
     comparePointResults(npoints, valid_result, 2, reduccio);
     board.sendCurrentWordToBoard();
@@ -569,7 +569,7 @@ float test_5_VerificarPuntuacio(map<char,Tile>& tiles)
     board.setTile(tiles['r'], BoardPosition(12,10));
     board.setTile(tiles['a'], BoardPosition(13,10));
     
-    board.checkCurrentWord(npoints, wrongWords);
+    board.checkCurrentWord(npoints);
     valid_result = 12;
     comparePointResults(npoints, valid_result, 2, reduccio);
     board.sendCurrentWordToBoard();
