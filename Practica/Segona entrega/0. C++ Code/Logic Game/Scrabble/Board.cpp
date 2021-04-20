@@ -44,7 +44,7 @@ Board::Board()
     }
 
     m_oDictionary.setLanguage(ENGLISH);
-    m_bIsFirstWord = true;
+    m_bIsFirstWord = true; 
 }
 
 Board::~Board(){
