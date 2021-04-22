@@ -78,6 +78,7 @@ float testSeient()
 	cout << "Comment :=>> Valor obtingut del passatger despres d'inicialitzar: ";
 	Passatger* p = s.getPassatger();
 	mostraPassatger(p);
+	cout << endl; 
 	if (!igualsPassatgers(p, nullptr))
 	{
 		cout << "Comment :=>> ERROR" << endl;
@@ -139,8 +140,8 @@ float testVol()
 
 	cout << "Comment :=>>" << endl;
 	cout << "Comment :=>>" << endl;
-	cout << "Comment :=>> Iniciant test de la classe Seient" << endl;
-	cout << "Comment :=>> =================================" << endl;
+	cout << "Comment :=>> Iniciant test de la classe Vol" << endl;
+	cout << "Comment :=>> ==============================" << endl;
 
 	const int N_SEIENTS = 6;
 	string codisSeients[N_SEIENTS] = { "1A", "1B", "1C", "2A", "2B", "2C" };
