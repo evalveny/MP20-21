@@ -5,6 +5,8 @@
 void Titulacio::afegeixEstudiant(const string& niu, const string& nom)
 {
 	// Afegeix estudiant.
+	m_estudiants[m_nEstudiants].inicialitza(niu, nom, m_nMaxAssignatures);
+	m_nEstudiants++;
 }
 
 bool Titulacio::eliminaEstudiant(const string& niu)
@@ -14,11 +16,18 @@ bool Titulacio::eliminaEstudiant(const string& niu)
 	while ((i < m_nEstudiants) && !trobat)
 	{
 		// Cerca estudiant
+		if (niu == m_estudiants[i].getNiu())
+			trobat = true;
+		else
+		{
+			i++;
+		}
 	}
 	if (trobat)
 	{
 		// Allibera estudiant
-		// Movem tots els apuntador per evitar tenir un buit a l'array.
+		m_estudiants[i].allibera();
+		// Movem tots els estudiants per evitar tenir un espai buit a l'array.
 		for (int j = i; j < (m_nEstudiants - 1); j++)
 			m_estudiants[j] = m_estudiants[j + 1];
 		m_nEstudiants--;

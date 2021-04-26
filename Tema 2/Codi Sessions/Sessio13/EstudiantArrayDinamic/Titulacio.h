@@ -1,6 +1,6 @@
 #pragma once
 #include "Estudiant.h"
-const int MAX_ESTUDIANTS = 300;
+const int MAX_ESTUDIANTS = 20;
 
 class Titulacio
 {
