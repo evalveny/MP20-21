@@ -15,8 +15,12 @@ public:
 	~Titulacio() { if (m_estudiants != nullptr) delete[] m_estudiants; }
 	void afegeixEstudiant(const string& niu, const string& nom);
 	bool eliminaEstudiant(const string& niu);
-	bool consultaEstudiant(const string& niu, Estudiant& e);
+	Estudiant* consultaEstudiant(const string& niu);
 	Estudiant getEstudiant(int posicio) { return m_estudiants[posicio]; }
+	string getNom() const { return m_nom; }
+	int getMaxAssignatures() const { return m_nMaxAssignatures; }
+	int getMaxEstudiants() const { return m_nMaxEstudiants; }
+	int getNEstudiants() const { return m_nEstudiants; }
 private:
 	string m_nom;
 	int m_nMaxAssignatures;

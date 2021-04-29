@@ -74,8 +74,9 @@ bool Titulacio::eliminaEstudiant(const string& niu)
 	return trobat;
 }
 
-bool Titulacio::consultaEstudiant(const string& niu, Estudiant& e)
+Estudiant* Titulacio::consultaEstudiant(const string& niu)
 {
+	Estudiant* estudiant = nullptr;
 	bool trobat = false;
 	int i = 0;
 	while ((i < m_nEstudiants) && !trobat)
@@ -88,6 +89,8 @@ bool Titulacio::consultaEstudiant(const string& niu, Estudiant& e)
 		}
 	}
 	if (trobat)
-		e = m_estudiants[i];
-	return trobat;
+		estudiant = &m_estudiants[i];
+	return estudiant;
 }
+
+
