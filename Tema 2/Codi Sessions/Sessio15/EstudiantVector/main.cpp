@@ -74,6 +74,8 @@ int main()
 			cout << "Comment :=>> Error a l'afegir assignatura" << endl;
 		}
 
+		cout << "Comment :=>> " << grade;
+
 		cout << "Comment :=>> ------------------------------------------" << endl;
 		cout << "Comment :=>> TEST eliminar assignatura a estudiant" << endl;
 		cout << "Comment :=>> ------------------------------------------" << endl;
@@ -100,7 +102,7 @@ int main()
 		cout << "Comment :=>> TEST mostrar assignatures estudiant" << endl;
 		cout << "Comment :=>> ------------------------------------------" << endl;
 		estudiant.mostraAssignatures();
-		cout << grade;
+		cout << "Comment :=>> " << grade;
 	
 
 	}
