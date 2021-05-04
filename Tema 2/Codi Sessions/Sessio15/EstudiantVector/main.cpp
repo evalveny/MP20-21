@@ -54,27 +54,45 @@ int main()
 
 		cout << "Comment :=>> TEST afegir assignatura alfabeticament a estudiant" << endl;
 		cout << "Comment :=>> ------------------------------------------" << endl;
+		cout << "Comment :=>> Afegint assignatures..." << endl;
+		cout << "Comment :=>> Metodologia de la Programacio" << endl;
 		estudiant.insereixAssignatura("Metodologia de la Programacio");
-		estudiant.insereixAssignatura("Fonaments de informatica");
-		assignatura = estudiant.getAssignatura(1);
+		cout << "Comment :=>> Fonaments d'informatica" << endl;
+		estudiant.insereixAssignatura("Fonaments d'informatica");
+		cout << "Comment :=>> Xarxes" << endl;
+		estudiant.insereixAssignatura("Xarxes");
+		cout << "Comment :=>> Grafics" << endl;
+		estudiant.insereixAssignatura("Grafics");
+		cout << "Comment :=>> ---------" << endl;
+		cout << "Comment :=>> Comprovant assignatura a la posicio 2 del vector..." << endl;
+		assignatura = estudiant.getAssignatura(2);
 		if (assignatura == "Metodologia de la Programacio") {
-			cout << "Assignatura Metodologia correcte";
+			cout << "Comment :=>> Assignatura Metodologia de la Programacio correcte" << endl;
 			grade = 5;
 		}
 		else {
-			cout << "Error al afegir assignatura";
+			cout << "Comment :=>> Error a l'afegir assignatura" << endl;
 		}
 
+		cout << "Comment :=>> ------------------------------------------" << endl;
 		cout << "Comment :=>> TEST eliminar assignatura a estudiant" << endl;
 		cout << "Comment :=>> ------------------------------------------" << endl;
-		estudiant.eliminaAssignatura("Fonaments de informatica");
+		cout << "Comment :=>> Eliminant assignatures..." << endl;
+		cout << "Comment :=>> Grafics" << endl;
+		estudiant.eliminaAssignatura("Grafics");
+		cout << "Comment :=>> Fonaments d'informatica" << endl;
+		estudiant.eliminaAssignatura("Fonaments d'informatica");
+		cout << "Comment :=>> Xarxes" << endl;
+		estudiant.eliminaAssignatura("Xarxes");
 		assignatura = estudiant.getAssignatura(0);
+		cout << "Comment :=>> ---------" << endl;
+		cout << "Comment :=>> Comprovant assignatura a la posicio 0 del vector..." << endl;
 		if (assignatura == "Fonaments de informatica" || assignatura != "Metodologia de la Programacio") {
 
-			cout << "Error al eliminar assignatura";
+			cout << "Comment :=>> Error a l'eliminar assignatura" << endl;
 		}
 		else {
-			cout << "Eliminar assignatura correcte";
+			cout << "Comment :=>> Eliminar assignatura correcte" << endl;
 			grade = grade +5;
 		}
 		
