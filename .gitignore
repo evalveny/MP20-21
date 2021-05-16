@@ -44,3 +44,12 @@ Practica/2. Platforms/0. Windows Desktop/Program/MP_Practica.ilk
 Practica/2. Platforms/0. Windows Desktop/Program/MP_Practica.pdb
 Practica/2. Platforms/0. Windows Desktop/Program/MP_Practica.exe
 Practica/1. Resources/WordFinder.obj
+/Practica/Primer Entrega/1. Resources/MP_Practica.tlog/*.tlog
+/Practica/Primer Entrega/1. Resources/*.obj
+/Practica/Primer Entrega/1. Resources/*.log
+/Practica/Primer Entrega/1. Resources/MP_Practica.tlog
+/Practica/Primer Entrega/1. Resources/*.pdb
+/Practica/Primer Entrega/1. Resources/*.idb
+/Practica/Primer Entrega/2. Platforms/0. Windows Desktop/Program/*.ilk
+*.pdb
+English.lproj

@@ -604,7 +604,7 @@ float test_5_VerificarPuntuacio(map<char,Tile>& tiles)
     cout << "Comment :=>>10|  - | - |E-1|X-8| - | - | - | - |" << endl;
     cout << "Comment :=>>  |    |   |   | DP|   |   |   |   |" << endl;
     cout << "Comment :=>>   -------------------------------- " << endl;   
-    board.setTile(tiles['t'], BoardPosition(9, 5)); //BoardPosition(col, row)
+//    board.setTile(tiles['t'], BoardPosition(9, 5)); //BoardPosition(col, row)
     board.setTile(tiles['e'], BoardPosition(10,9)); //BoardPosition(col, row)
     board.setTile(tiles['x'], BoardPosition(10,10)); //BoardPosition(col, row)
     
