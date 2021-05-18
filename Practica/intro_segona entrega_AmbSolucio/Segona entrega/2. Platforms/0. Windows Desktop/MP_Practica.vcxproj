@@ -160,8 +160,13 @@
     <ClCompile Include="..\..\0. C++ Code\Graphic Lib\video.cpp" />
     <ClCompile Include="..\..\0. C++ Code\Logic Game\GraphicManager.cpp" />
     <ClCompile Include="..\..\0. C++ Code\Logic Game\main.cpp" />
+    <ClCompile Include="..\..\0. C++ Code\Logic Game\Scrabble\Board.cpp" />
     <ClCompile Include="..\..\0. C++ Code\Logic Game\Scrabble\Button.cpp" />
+    <ClCompile Include="..\..\0. C++ Code\Logic Game\Scrabble\Cell.cpp" />
+    <ClCompile Include="..\..\0. C++ Code\Logic Game\Scrabble\Dictionary.cpp" />
     <ClCompile Include="..\..\0. C++ Code\Logic Game\Scrabble\ScrabbleGame.cpp" />
+    <ClCompile Include="..\..\0. C++ Code\Logic Game\Scrabble\Tile.cpp" />
+    <ClCompile Include="..\..\0. C++ Code\Logic Game\Scrabble\WordFinder.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="..\..\0. C++ Code\Graphic Lib\debug.h" />
@@ -179,8 +184,14 @@
     <ClInclude Include="..\..\0. C++ Code\Graphic Lib\stb_vorbis.h" />
     <ClInclude Include="..\..\0. C++ Code\Graphic Lib\video.h" />
     <ClInclude Include="..\..\0. C++ Code\Logic Game\GraphicManager.h" />
+    <ClInclude Include="..\..\0. C++ Code\Logic Game\Scrabble\Board.h" />
+    <ClInclude Include="..\..\0. C++ Code\Logic Game\Scrabble\BoardPosition.h" />
     <ClInclude Include="..\..\0. C++ Code\Logic Game\Scrabble\Button.h" />
+    <ClInclude Include="..\..\0. C++ Code\Logic Game\Scrabble\Cell.h" />
+    <ClInclude Include="..\..\0. C++ Code\Logic Game\Scrabble\Dictionary.h" />
     <ClInclude Include="..\..\0. C++ Code\Logic Game\Scrabble\ScrabbleGame.h" />
+    <ClInclude Include="..\..\0. C++ Code\Logic Game\Scrabble\Tile.h" />
+    <ClInclude Include="..\..\0. C++ Code\Logic Game\Scrabble\WordFinder.h" />
     <ClInclude Include="..\..\0. C++ Code\Logic Game\Scrabble_Defs.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />

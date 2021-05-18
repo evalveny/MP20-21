@@ -10,6 +10,7 @@
 #include "../Scrabble_Defs.h"
 
 #include "../GraphicManager.h"
+#include "Tile.h"
 
 ScrabbleGame::ScrabbleGame()
 {
@@ -142,7 +143,7 @@ void ScrabbleGame::updateAndRender (int mousePosX, int mousePosY, bool mouseStat
 	GraphicManager::getInstance()->drawFont(FONT_GREEN_30, 10, 10, 0.6, "Hello world!");
 	*/
 	//TODO 2.3: Imprimiu les coordenades del mouse (us la passen per paràmetres), fent ús de drawFont.
-	GraphicManager::getInstance()->drawSprite(IMAGE_BACKGROUND, 0, 0);
+	/*GraphicManager::getInstance()->drawSprite(IMAGE_BACKGROUND, 0, 0);
 	GraphicManager::getInstance()->drawSprite(IMAGE_BOARD, BOARD_POS_X, BOARD_POS_Y);
 
 
@@ -162,7 +163,7 @@ void ScrabbleGame::updateAndRender (int mousePosX, int mousePosY, bool mouseStat
 
 	std::string msg = "PosX: " + to_string(mousePosX) + ", PosY: " + to_string(mousePosY);
 	GraphicManager::getInstance()->drawFont(FONT_GREEN_30, 10, 10, 0.6, msg);
-	
+	*/
 
 	//TODO 3: Programar el codi per afegir un botó
 	//--------------------------------------------
@@ -196,8 +197,8 @@ void ScrabbleGame::updateAndRender (int mousePosX, int mousePosY, bool mouseStat
 		}
 	}
 
-	msg = "PosX: " + to_string(mousePosX) + ", PosY: " + to_string(mousePosY);
-	GraphicManager::getInstance()->drawFont(FONT_GREEN_30, 10, 10, 0.6, msg);
+	std::string msg = "PosX: " + to_string(mousePosX) + ", PosY: " + to_string(mousePosY);
+	GraphicManager::getInstance()->drawFont(FONT_WHITE_30, 10, 10, 0.6, msg);
 
 	int btn_size_w = 139;
 	int btn_size_h = 100;
@@ -226,7 +227,52 @@ void ScrabbleGame::updateAndRender (int mousePosX, int mousePosY, bool mouseStat
 	else {
 		btn_isPressed = false;
 	}
-   */
+	*/
 
-    
+
+
+	//TODO TASQUES PER FER: Mostrar l'estat actual del tauler 
+	//------------------------------------------------------
+
+	GraphicManager::getInstance()->drawSprite(IMAGE_BACKGROUND, 0, 0);
+	if (draw_tiles) {
+		Tile tile1('i', 1);
+		board.setTile(tile1, BoardPosition(7, 7)); //BoardPosition(col, row)
+		Tile tile2('s', 1);
+		board.setTile(tile2, BoardPosition(8, 7));
+	}
+	board.render();
+	board.removeCurrentWord();
+
+	std::string msg = "PosX: " + to_string(mousePosX) + ", PosY: " + to_string(mousePosY);
+	GraphicManager::getInstance()->drawFont(FONT_WHITE_30, 10, 10, 0.6, msg);
+
+	int btn_size_w = 139;
+	int btn_size_h = 100;
+	int btn_pos_x = SCREEN_SIZE_X*0.5 - btn_size_w*0.5;
+	int btn_pos_y = SCREEN_SIZE_Y - btn_size_h;
+	if (btn_isPressed) {
+		GraphicManager::getInstance()->drawSprite(IMAGE_BUTTON_SEND_PRESSED, btn_pos_x, btn_pos_y);
+	}
+	else {
+		GraphicManager::getInstance()->drawSprite(IMAGE_BUTTON_SEND_NORMAL, btn_pos_x, btn_pos_y);
+	}
+
+	if (mousePosX > btn_pos_x && mousePosX < btn_pos_x + btn_size_w &&
+		mousePosY > btn_pos_y && mousePosY < btn_pos_y + btn_size_h) {
+		if (mouseStatus) {
+			btn_isPressed = true;
+		}
+		else {
+			if (btn_isPressed) {
+				btn_isPressed = false;
+				//Do action:
+				draw_tiles = !draw_tiles;
+			}
+		}
+	}
+	else {
+		btn_isPressed = false;
+	}
+	
 }

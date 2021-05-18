@@ -10,6 +10,7 @@
 #define ScrabbleGame_hpp
 
 #include <stdio.h>
+#include "Board.h"
 
 
 class ScrabbleGame
@@ -30,6 +31,8 @@ private:
 	// - Inicialitzar el botó en el constructor de ScrabbleGame.
 	// - Fer la crida del render i update.
 
+	// TODO TASQUES PER FER
+	Board board;
 
 };
 

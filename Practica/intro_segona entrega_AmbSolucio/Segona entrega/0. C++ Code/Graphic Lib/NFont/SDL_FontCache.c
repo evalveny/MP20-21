@@ -10,6 +10,7 @@ See SDL_FontCache.h for license info.
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
+#include <cassert>
 
 // Visual C does not support static inline
 #ifndef static_inline
@@ -138,6 +139,7 @@ static char* new_concat(const char* a, const char* b)
     char* new_string = (char*)malloc(size+1);
 
     // Concatenate strings in the new buffer
+    assert(new_string);
     strcpy(new_string, a);
     strcat(new_string, b);
 
@@ -170,6 +172,7 @@ char* FC_GetStringASCII(void)
         int i;
         char c;
         buffer = (char*)malloc(512);
+        assert(buffer);
         memset(buffer, 0, 512);
         i = 0;
         c = 32;
@@ -193,6 +196,7 @@ char* FC_GetStringLatin1(void)
         int i;
         unsigned char c;
         buffer = (char*)malloc(512);
+        assert(buffer);
         memset(buffer, 0, 512);
         i = 0;
         c = 0xA0;
@@ -231,7 +235,7 @@ char* FC_GetStringASCII_Latin1(void)
 
 FC_Rect FC_MakeRect(float x, float y, float w, float h)
 {
-    FC_Rect r = {x, y, w, h};
+    FC_Rect r = {(int) round(x), (int) round(y), (int) round(w), (int) round(h)};
     return r;
 }
 
@@ -297,8 +301,10 @@ static FC_Map* FC_MapCreate(int num_buckets)
     int i;
     FC_Map* map = (FC_Map*)malloc(sizeof(FC_Map));
 
+    assert(map);
     map->num_buckets = num_buckets;
     map->buckets = (FC_MapNode**)malloc(num_buckets * sizeof(FC_MapNode*));
+    assert(map->buckets);
 
     for(i = 0; i < num_buckets; ++i)
     {
@@ -368,6 +374,7 @@ static FC_GlyphData* FC_MapInsert(FC_Map* map, Uint32 codepoint, FC_GlyphData gl
     if(map->buckets[index] == NULL)
     {
         node = map->buckets[index] = (FC_MapNode*)malloc(sizeof(FC_MapNode));
+        assert(node);
         node->key = codepoint;
         node->value = glyph;
         node->next = NULL;
@@ -382,6 +389,7 @@ static FC_GlyphData* FC_MapInsert(FC_Map* map, Uint32 codepoint, FC_GlyphData gl
             node->next = (FC_MapNode*)malloc(sizeof(FC_MapNode));
             node = node->next;
 
+            assert(node);
             node->key = codepoint;
             node->value = glyph;
             node->next = NULL;
@@ -475,6 +483,7 @@ char* U8_alloc(unsigned int size)
         return NULL;
 
     result = (char*)malloc(size);
+    assert(result);
     result[0] = '\0';
 
     return result;
@@ -492,6 +501,7 @@ char* U8_strdup(const char* string)
         return NULL;
 
     result = (char*)malloc(strlen(string)+1);
+    assert(result);
     strcpy(result,  string);
 
     return result;
@@ -610,7 +620,7 @@ void U8_strdel(char* string, int position)
 
 static_inline FC_Rect FC_RectUnion(FC_Rect A, FC_Rect B)
 {
-    float x,x2,y,y2;
+    int x,x2,y,y2;
     x = FC_MIN(A.x, B.x);
     y = FC_MIN(A.y, B.y);
     x2 = FC_MAX(A.x+A.w, B.x+B.w);
@@ -625,7 +635,7 @@ static_inline FC_Rect FC_RectUnion(FC_Rect A, FC_Rect B)
 static_inline FC_Rect FC_RectIntersect(FC_Rect A, FC_Rect B)
 {
     FC_Rect result;
-	float Amin, Amax, Bmin, Bmax;
+	int Amin, Amax, Bmin, Bmax;
 
 	// Horizontal intersection
 	Amin = A.x;
@@ -699,10 +709,10 @@ FC_Rect FC_DefaultRenderCallback(FC_Image* src, FC_Rect* srcrect, FC_Target* des
     }
     #endif
 
-    result.x = x;
-    result.y = y;
-    result.w = w;
-    result.h = h;
+    result.x = (int) x;
+    result.y = (int) y;
+    result.w = (int) w;
+    result.h = (int) h;
     return result;
 }
 
@@ -1042,6 +1052,7 @@ Uint8 FC_SetGlyphCacheLevel(FC_Font* font, int cache_level, FC_Image* cache_text
             int i;
             FC_Image** new_cache;
             new_cache = (FC_Image**)malloc(font->glyph_cache_count * sizeof(FC_Image*));
+            assert(new_cache);
             for(i = 0; i < font->glyph_cache_size; ++i)
                 new_cache[i] = font->glyph_cache[i];
 
@@ -1062,6 +1073,7 @@ FC_Font* FC_CreateFont(void)
     FC_Font* font;
 
     font = (FC_Font*)malloc(sizeof(FC_Font));
+    assert(font);
     memset(font, 0, sizeof(FC_Font));
 
     FC_Init(font);
@@ -1549,13 +1561,13 @@ static FC_Rect FC_RenderLeft(FC_Font* font, FC_Target* dest, float x, float y, F
     if(c == NULL || font->glyph_cache_count == 0 || dest == NULL)
         return dirtyRect;
 
-    int newlineX = x;
+    int newlineX = (int) x;
 
     for(; *c != '\0'; c++)
     {
         if(*c == '\n')
         {
-            destX = newlineX;
+            destX = (float) newlineX;
             destY += destH + destLineSpacing;
             continue;
         }
@@ -1659,6 +1671,7 @@ FC_StringList** FC_StringListPushBack(FC_StringList** node, char* value, Uint8 c
 
     *node = (FC_StringList*)malloc(sizeof(FC_StringList));
 
+    assert(*node);
     (*node)->value = (copy? U8_strdup(value) : value);
     (*node)->next = NULL;
 
@@ -1687,9 +1700,11 @@ static FC_StringList* FC_Explode(const char* text, char delimiter)
         if(*end == delimiter || *end == '\0')
         {
             *node = (FC_StringList*)malloc(sizeof(FC_StringList));
+            assert(*node);
             new_node = *node;
 
             new_node->value = (char*)malloc(size + 1);
+            assert(new_node->value);
             memcpy(new_node->value, start, size);
             new_node->value[size] = '\0';
 
@@ -1733,9 +1748,11 @@ static FC_StringList* FC_ExplodeAndKeep(const char* text, char delimiter)
         if(*end == delimiter || *end == '\0')
         {
             *node = (FC_StringList*)malloc(sizeof(FC_StringList));
+            assert(*node);
             new_node = *node;
 
             new_node->value = (char*)malloc(size + 1);
+            assert(new_node->value);
             memcpy(new_node->value, start, size);
             new_node->value[size] = '\0';
 
@@ -1832,7 +1849,7 @@ static void FC_DrawColumnFromBuffer(FC_Font* font, FC_Target* dest, FC_Rect box,
     ls = FC_GetBufferFitToColumn(font, box.w, scale, 0);
     for(iter = ls; iter != NULL; iter = iter->next)
     {
-        FC_RenderAlign(font, dest, box.x, y, box.w, scale, align, iter->value);
+        FC_RenderAlign(font, dest, (float) box.x, (float) y, box.w, scale, align, iter->value);
         y += FC_GetLineHeight(font);
     }
     FC_StringListFree(ls);
@@ -1845,7 +1862,7 @@ FC_Rect FC_DrawBox(FC_Font* font, FC_Target* dest, FC_Rect box, const char* form
 {
     Uint8 useClip;
     if(formatted_text == NULL || font == NULL)
-        return FC_MakeRect(box.x, box.y, 0, 0);
+        return FC_MakeRect((float) box.x, (float) box.y, 0.0, 0.0);
 
     FC_EXTRACT_VARARGS(fc_buffer, formatted_text);
 
@@ -1877,7 +1894,7 @@ FC_Rect FC_DrawBoxAlign(FC_Font* font, FC_Target* dest, FC_Rect box, FC_AlignEnu
 {
     Uint8 useClip;
     if(formatted_text == NULL || font == NULL)
-        return FC_MakeRect(box.x, box.y, 0, 0);
+        return FC_MakeRect((float) box.x, (float) box.y, 0.0, 0.0);
 
     FC_EXTRACT_VARARGS(fc_buffer, formatted_text);
 
@@ -1908,7 +1925,7 @@ FC_Rect FC_DrawBoxScale(FC_Font* font, FC_Target* dest, FC_Rect box, FC_Scale sc
 {
     Uint8 useClip;
     if(formatted_text == NULL || font == NULL)
-        return FC_MakeRect(box.x, box.y, 0, 0);
+        return FC_MakeRect((float) box.x, (float) box.y, 0, 0);
 
     FC_EXTRACT_VARARGS(fc_buffer, formatted_text);
 
@@ -1939,7 +1956,7 @@ FC_Rect FC_DrawBoxColor(FC_Font* font, FC_Target* dest, FC_Rect box, SDL_Color c
 {
     Uint8 useClip;
     if(formatted_text == NULL || font == NULL)
-        return FC_MakeRect(box.x, box.y, 0, 0);
+        return FC_MakeRect((float) box.x, (float) box.y, 0, 0);
 
     FC_EXTRACT_VARARGS(fc_buffer, formatted_text);
 
@@ -1970,7 +1987,7 @@ FC_Rect FC_DrawBoxEffect(FC_Font* font, FC_Target* dest, FC_Rect box, FC_Effect 
 {
     Uint8 useClip;
     if(formatted_text == NULL || font == NULL)
-        return FC_MakeRect(box.x, box.y, 0, 0);
+        return FC_MakeRect((float) box.x, (float) box.y, 0, 0);
 
     FC_EXTRACT_VARARGS(fc_buffer, formatted_text);
 
@@ -1999,7 +2016,7 @@ FC_Rect FC_DrawBoxEffect(FC_Font* font, FC_Target* dest, FC_Rect box, FC_Effect 
 
 FC_Rect FC_DrawColumn(FC_Font* font, FC_Target* dest, float x, float y, Uint16 width, const char* formatted_text, ...)
 {
-    FC_Rect box = {x, y, width, 0};
+    FC_Rect box = {(int) x, (int) y, width, 0};
     int total_height;
 
     if(formatted_text == NULL || font == NULL)
@@ -2011,12 +2028,12 @@ FC_Rect FC_DrawColumn(FC_Font* font, FC_Target* dest, float x, float y, Uint16 w
 
     FC_DrawColumnFromBuffer(font, dest, box, &total_height, FC_MakeScale(1,1), FC_ALIGN_LEFT);
 
-    return FC_MakeRect(box.x, box.y, width, total_height);
+    return FC_MakeRect((float) box.x, (float) box.y, (float) width, (float) total_height);
 }
 
 FC_Rect FC_DrawColumnAlign(FC_Font* font, FC_Target* dest, float x, float y, Uint16 width, FC_AlignEnum align, const char* formatted_text, ...)
 {
-    FC_Rect box = {x, y, width, 0};
+    FC_Rect box = {(int) x, (int) y, width, 0};
     int total_height;
 
     if(formatted_text == NULL || font == NULL)
@@ -2040,12 +2057,12 @@ FC_Rect FC_DrawColumnAlign(FC_Font* font, FC_Target* dest, float x, float y, Uin
 
     FC_DrawColumnFromBuffer(font, dest, box, &total_height, FC_MakeScale(1,1), align);
 
-    return FC_MakeRect(box.x, box.y, width, total_height);
+    return FC_MakeRect((float) box.x, (float) box.y, (float) width, (float) total_height);
 }
 
 FC_Rect FC_DrawColumnScale(FC_Font* font, FC_Target* dest, float x, float y, Uint16 width, FC_Scale scale, const char* formatted_text, ...)
 {
-    FC_Rect box = {x, y, width, 0};
+    FC_Rect box = {(int) x, (int) y, width, 0};
     int total_height;
 
     if(formatted_text == NULL || font == NULL)
@@ -2057,12 +2074,12 @@ FC_Rect FC_DrawColumnScale(FC_Font* font, FC_Target* dest, float x, float y, Uin
 
     FC_DrawColumnFromBuffer(font, dest, box, &total_height, scale, FC_ALIGN_LEFT);
 
-    return FC_MakeRect(box.x, box.y, width, total_height);
+    return FC_MakeRect((float) box.x, (float) box.y, (float) width, (float) total_height);
 }
 
 FC_Rect FC_DrawColumnColor(FC_Font* font, FC_Target* dest, float x, float y, Uint16 width, SDL_Color color, const char* formatted_text, ...)
 {
-    FC_Rect box = {x, y, width, 0};
+    FC_Rect box = {(int) x, (int) y, width, 0};
     int total_height;
 
     if(formatted_text == NULL || font == NULL)
@@ -2074,12 +2091,12 @@ FC_Rect FC_DrawColumnColor(FC_Font* font, FC_Target* dest, float x, float y, Uin
 
     FC_DrawColumnFromBuffer(font, dest, box, &total_height, FC_MakeScale(1,1), FC_ALIGN_LEFT);
 
-    return FC_MakeRect(box.x, box.y, width, total_height);
+    return FC_MakeRect((float) box.x, (float) box.y, (float) width, (float) total_height);
 }
 
 FC_Rect FC_DrawColumnEffect(FC_Font* font, FC_Target* dest, float x, float y, Uint16 width, FC_Effect effect, const char* formatted_text, ...)
 {
-    FC_Rect box = {x, y, width, 0};
+    FC_Rect box = {(int) x, (int) y, width, 0};
     int total_height;
 
     if(formatted_text == NULL || font == NULL)
@@ -2103,12 +2120,12 @@ FC_Rect FC_DrawColumnEffect(FC_Font* font, FC_Target* dest, float x, float y, Ui
 
     FC_DrawColumnFromBuffer(font, dest, box, &total_height, effect.scale, effect.alignment);
 
-    return FC_MakeRect(box.x, box.y, width, total_height);
+    return FC_MakeRect((float) box.x, (float) box.y, (float) width, (float) total_height);
 }
 
 static FC_Rect FC_RenderCenter(FC_Font* font, FC_Target* dest, float x, float y, FC_Scale scale, const char* text)
 {
-    FC_Rect result = {x, y, 0, 0};
+    FC_Rect result = {(int) x, (int) y, 0, 0};
     if(text == NULL || font == NULL)
         return result;
 
@@ -2141,7 +2158,7 @@ static FC_Rect FC_RenderCenter(FC_Font* font, FC_Target* dest, float x, float y,
 
 static FC_Rect FC_RenderRight(FC_Font* font, FC_Target* dest, float x, float y, FC_Scale scale, const char* text)
 {
-    FC_Rect result = {x, y, 0, 0};
+    FC_Rect result = {(int) x, (int) y, 0, 0};
     if(text == NULL || font == NULL)
         return result;
 
@@ -2536,15 +2553,15 @@ SDL_Color FC_GetDefaultColor(FC_Font* font)
 
 FC_Rect FC_GetBounds(FC_Font* font, float x, float y, FC_AlignEnum align, FC_Scale scale, const char* formatted_text, ...)
 {
-    FC_Rect result = {x, y, 0, 0};
+    FC_Rect result = {(int) x, (int) y, 0, 0};
     
     if(formatted_text == NULL)
         return result;
     
     FC_EXTRACT_VARARGS(fc_buffer, formatted_text);
     
-    result.w = FC_GetWidth(font, "%s", fc_buffer) * scale.x;
-    result.h = FC_GetHeight(font, "%s", fc_buffer) * scale.y;
+    result.w = (int) (FC_GetWidth(font, "%s", fc_buffer) * scale.x);
+    result.h = (int) (FC_GetHeight(font, "%s", fc_buffer) * scale.y);
     
     switch(align)
     {
@@ -2593,7 +2610,7 @@ Uint16 FC_GetPositionFromOffset(FC_Font* font, float x, float y, int column_widt
         {
             if(FC_GetGlyphData(font, &glyph_data, FC_GetCodepointFromUTF8((const char**)&line, 0)))
             {
-                if(FC_InRect(x, y, FC_MakeRect(current_x, current_y, glyph_data.rect.w, glyph_data.rect.h)))
+                if(FC_InRect(x, y, FC_MakeRect((float) current_x, (float) current_y, (float) glyph_data.rect.w, (float) glyph_data.rect.h)))
                 {
                     done = 1;
                     break;

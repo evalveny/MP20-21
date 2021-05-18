@@ -6,7 +6,16 @@
 #include "sprites.h"
 #include "error.h"
 
-Sprite::Sprite(){}
+Sprite::Sprite()
+{
+    animacion = NULL;
+    velocidad_animacion = 1.0f;
+    posicion_animacion = 0.0f;
+    num_frame_actual = 0;
+    animacion_completada = false;
+    setScale(1.0f);
+    frame_actual = NULL;
+}
 
 Sprite::Sprite(const char *ruta)
 {

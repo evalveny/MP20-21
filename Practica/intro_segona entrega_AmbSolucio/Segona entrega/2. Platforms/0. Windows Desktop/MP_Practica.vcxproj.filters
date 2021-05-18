@@ -1,9 +1,6 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <ItemGroup>
-    <ClCompile Include="..\..\0. C++ Code\Logic Game\Scrabble\Button.cpp">
-      <Filter>Logic Game\Scrabble</Filter>
-    </ClCompile>
     <ClCompile Include="..\..\0. C++ Code\Logic Game\GraphicManager.cpp">
       <Filter>Logic Game</Filter>
     </ClCompile>
@@ -43,11 +40,26 @@
     <ClCompile Include="..\..\0. C++ Code\Graphic Lib\NFont\SDL_FontCache.c">
       <Filter>Graphic Lib\NFont</Filter>
     </ClCompile>
+    <ClCompile Include="..\..\0. C++ Code\Logic Game\Scrabble\Board.cpp">
+      <Filter>Logic Game\Scrabble</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\0. C++ Code\Logic Game\Scrabble\Button.cpp">
+      <Filter>Logic Game\Scrabble</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\0. C++ Code\Logic Game\Scrabble\Cell.cpp">
+      <Filter>Logic Game\Scrabble</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\0. C++ Code\Logic Game\Scrabble\Dictionary.cpp">
+      <Filter>Logic Game\Scrabble</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\0. C++ Code\Logic Game\Scrabble\Tile.cpp">
+      <Filter>Logic Game\Scrabble</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\0. C++ Code\Logic Game\Scrabble\WordFinder.cpp">
+      <Filter>Logic Game\Scrabble</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="..\..\0. C++ Code\Logic Game\Scrabble\Button.h">
-      <Filter>Logic Game\Scrabble</Filter>
-    </ClInclude>
     <ClInclude Include="..\..\0. C++ Code\Logic Game\GraphicManager.h">
       <Filter>Logic Game</Filter>
     </ClInclude>
@@ -98,6 +110,27 @@
     </ClInclude>
     <ClInclude Include="..\..\0. C++ Code\Logic Game\Scrabble_Defs.h">
       <Filter>Logic Game</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\0. C++ Code\Logic Game\Scrabble\Board.h">
+      <Filter>Logic Game\Scrabble</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\0. C++ Code\Logic Game\Scrabble\BoardPosition.h">
+      <Filter>Logic Game\Scrabble</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\0. C++ Code\Logic Game\Scrabble\Button.h">
+      <Filter>Logic Game\Scrabble</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\0. C++ Code\Logic Game\Scrabble\Cell.h">
+      <Filter>Logic Game\Scrabble</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\0. C++ Code\Logic Game\Scrabble\Dictionary.h">
+      <Filter>Logic Game\Scrabble</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\0. C++ Code\Logic Game\Scrabble\Tile.h">
+      <Filter>Logic Game\Scrabble</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\0. C++ Code\Logic Game\Scrabble\WordFinder.h">
+      <Filter>Logic Game\Scrabble</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>

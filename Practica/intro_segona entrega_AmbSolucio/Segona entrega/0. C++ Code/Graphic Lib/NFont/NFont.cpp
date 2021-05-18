@@ -379,7 +379,7 @@ NFont::Rectf::Rectf(float x, float y, float w, float h)
 {}
 
 NFont::Rectf::Rectf(const SDL_Rect& rect)
-    : x(rect.x), y(rect.y), w(rect.w), h(rect.h)
+    : x(float(rect.x)), y(float(rect.y)), w(float(rect.w)), h(float(rect.h))
 {}
 
 #ifdef NFONT_USE_SDL_GPU

@@ -27,5 +27,11 @@ const int BOARD_POS_Y = 40;
 const int BOARD_POS_X = SCREEN_SIZE_X * 0.5 - BOARD_SIZE * 0.5;
 const int BOARD_POS_Y = 40;
 
+#include <vector>
+using namespace std;
+#include "Scrabble/BoardPosition.h"
+
+typedef vector<BoardPosition> VectorOfPositions;
+
 
 #endif /* Scrabble_h */
