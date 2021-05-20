@@ -1,7 +1,139 @@
-﻿  Board.cpp
+﻿  debug.cpp
+  image_png.cpp
+  keyboard.cpp
+  mouse.cpp
+  NFont.cpp
+C:\Users\1002245\OneDrive - Computer Vision Center\MP\Curs2020-21\Repositori\Practica\Segona entrega\0. C++ Code\Graphic Lib\NFont\NFont.cpp(382,8): warning C4244: 'inicializando': conversión de 'const int' a 'float'; posible pérdida de datos
+C:\Users\1002245\OneDrive - Computer Vision Center\MP\Curs2020-21\Repositori\Practica\Segona entrega\0. C++ Code\Graphic Lib\NFont\NFont.cpp(382,19): warning C4244: 'inicializando': conversión de 'const int' a 'float'; posible pérdida de datos
+C:\Users\1002245\OneDrive - Computer Vision Center\MP\Curs2020-21\Repositori\Practica\Segona entrega\0. C++ Code\Graphic Lib\NFont\NFont.cpp(382,30): warning C4244: 'inicializando': conversión de 'const int' a 'float'; posible pérdida de datos
+C:\Users\1002245\OneDrive - Computer Vision Center\MP\Curs2020-21\Repositori\Practica\Segona entrega\0. C++ Code\Graphic Lib\NFont\NFont.cpp(382,41): warning C4244: 'inicializando': conversión de 'const int' a 'float'; posible pérdida de datos
+  sound.cpp
+  sprites.cpp
+  stb_vorbis.cpp
+  video.cpp
+  GraphicManager.cpp
+C:\Users\1002245\OneDrive - Computer Vision Center\MP\Curs2020-21\Repositori\Practica\Segona entrega\0. C++ Code\Logic Game\GraphicManager.cpp(28,37): warning C4244: 'argumento': conversión de 'float' a 'int'; posible pérdida de datos
+C:\Users\1002245\OneDrive - Computer Vision Center\MP\Curs2020-21\Repositori\Practica\Segona entrega\0. C++ Code\Logic Game\GraphicManager.cpp(28,31): warning C4244: 'argumento': conversión de 'float' a 'int'; posible pérdida de datos
+  joc.cpp
+C:\Users\1002245\OneDrive - Computer Vision Center\MP\Curs2020-21\Repositori\Practica\Segona entrega\0. C++ Code\Logic Game\Scrabble\Scrabble.h(17,45): warning C4244: 'inicializando': conversión de 'double' a 'int'; posible pérdida de datos
+C:\Users\1002245\OneDrive - Computer Vision Center\MP\Curs2020-21\Repositori\Practica\Segona entrega\0. C++ Code\Logic Game\Scrabble\Player.h(22,49): warning C4244: 'inicializando': conversión de 'double' a 'int'; posible pérdida de datos
+  main.cpp
+  Board.cpp
 C:\Users\1002245\OneDrive - Computer Vision Center\MP\Curs2020-21\Repositori\Practica\Segona entrega\0. C++ Code\Logic Game\Scrabble\Scrabble.h(17,45): warning C4244: 'inicializando': conversión de 'double' a 'int'; posible pérdida de datos
 C:\Users\1002245\OneDrive - Computer Vision Center\MP\Curs2020-21\Repositori\Practica\Segona entrega\0. C++ Code\Logic Game\Scrabble\Board.cpp(66,23): warning C4018: '<': no coinciden signed/unsigned
 C:\Users\1002245\OneDrive - Computer Vision Center\MP\Curs2020-21\Repositori\Practica\Segona entrega\0. C++ Code\Logic Game\Scrabble\Board.cpp(112,23): warning C4018: '<': no coinciden signed/unsigned
 C:\Users\1002245\OneDrive - Computer Vision Center\MP\Curs2020-21\Repositori\Practica\Segona entrega\0. C++ Code\Logic Game\Scrabble\Board.cpp(123,23): warning C4018: '<': no coinciden signed/unsigned
 C:\Users\1002245\OneDrive - Computer Vision Center\MP\Curs2020-21\Repositori\Practica\Segona entrega\0. C++ Code\Logic Game\Scrabble\Board.cpp(162,27): warning C4018: '<': no coinciden signed/unsigned
+  Button.cpp
+C:\Users\1002245\OneDrive - Computer Vision Center\MP\Curs2020-21\Repositori\Practica\Segona entrega\0. C++ Code\Logic Game\Scrabble\Button.cpp(47,79): warning C4244: 'argumento': conversión de 'int' a 'float'; posible pérdida de datos
+C:\Users\1002245\OneDrive - Computer Vision Center\MP\Curs2020-21\Repositori\Practica\Segona entrega\0. C++ Code\Logic Game\Scrabble\Button.cpp(47,70): warning C4244: 'argumento': conversión de 'int' a 'float'; posible pérdida de datos
+C:\Users\1002245\OneDrive - Computer Vision Center\MP\Curs2020-21\Repositori\Practica\Segona entrega\0. C++ Code\Logic Game\Scrabble\Button.cpp(50,80): warning C4244: 'argumento': conversión de 'int' a 'float'; posible pérdida de datos
+C:\Users\1002245\OneDrive - Computer Vision Center\MP\Curs2020-21\Repositori\Practica\Segona entrega\0. C++ Code\Logic Game\Scrabble\Button.cpp(50,71): warning C4244: 'argumento': conversión de 'int' a 'float'; posible pérdida de datos
+  Cell.cpp
+C:\Users\1002245\OneDrive - Computer Vision Center\MP\Curs2020-21\Repositori\Practica\Segona entrega\0. C++ Code\Logic Game\Scrabble\Cell.cpp(18,50): warning C4244: 'argumento': conversión de 'int' a 'float'; posible pérdida de datos
+C:\Users\1002245\OneDrive - Computer Vision Center\MP\Curs2020-21\Repositori\Practica\Segona entrega\0. C++ Code\Logic Game\Scrabble\Cell.cpp(18,43): warning C4244: 'argumento': conversión de 'int' a 'float'; posible pérdida de datos
+  Dictionary.cpp
+  LettersBag.cpp
+C:\Users\1002245\OneDrive - Computer Vision Center\MP\Curs2020-21\Repositori\Practica\Segona entrega\0. C++ Code\Logic Game\Scrabble\LettersBag.cpp(46,27): warning C4018: '<': no coinciden signed/unsigned
+  Player.cpp
+C:\Users\1002245\OneDrive - Computer Vision Center\MP\Curs2020-21\Repositori\Practica\Segona entrega\0. C++ Code\Logic Game\Scrabble\Scrabble.h(17,45): warning C4244: 'inicializando': conversión de 'double' a 'int'; posible pérdida de datos
+C:\Users\1002245\OneDrive - Computer Vision Center\MP\Curs2020-21\Repositori\Practica\Segona entrega\0. C++ Code\Logic Game\Scrabble\Player.h(22,49): warning C4244: 'inicializando': conversión de 'double' a 'int'; posible pérdida de datos
+C:\Users\1002245\OneDrive - Computer Vision Center\MP\Curs2020-21\Repositori\Practica\Segona entrega\0. C++ Code\Logic Game\Scrabble\Player.cpp(71,58): warning C4244: 'argumento': conversión de 'int' a 'float'; posible pérdida de datos
+C:\Users\1002245\OneDrive - Computer Vision Center\MP\Curs2020-21\Repositori\Practica\Segona entrega\0. C++ Code\Logic Game\Scrabble\Player.cpp(71,47): warning C4244: 'argumento': conversión de 'int' a 'float'; posible pérdida de datos
+C:\Users\1002245\OneDrive - Computer Vision Center\MP\Curs2020-21\Repositori\Practica\Segona entrega\0. C++ Code\Logic Game\Scrabble\Player.cpp(93,47): warning C4244: 'argumento': conversión de 'int' a 'float'; posible pérdida de datos
+C:\Users\1002245\OneDrive - Computer Vision Center\MP\Curs2020-21\Repositori\Practica\Segona entrega\0. C++ Code\Logic Game\Scrabble\Player.cpp(104,64): warning C4244: 'argumento': conversión de 'int' a 'float'; posible pérdida de datos
+C:\Users\1002245\OneDrive - Computer Vision Center\MP\Curs2020-21\Repositori\Practica\Segona entrega\0. C++ Code\Logic Game\Scrabble\Player.cpp(104,59): warning C4244: 'argumento': conversión de 'int' a 'float'; posible pérdida de datos
+C:\Users\1002245\OneDrive - Computer Vision Center\MP\Curs2020-21\Repositori\Practica\Segona entrega\0. C++ Code\Logic Game\Scrabble\Player.cpp(117,47): warning C4244: 'argumento': conversión de 'int' a 'float'; posible pérdida de datos
+C:\Users\1002245\OneDrive - Computer Vision Center\MP\Curs2020-21\Repositori\Practica\Segona entrega\0. C++ Code\Logic Game\Scrabble\Player.cpp(134,31): warning C4244: 'inicializando': conversión de 'float' a 'int'; posible pérdida de datos
+C:\Users\1002245\OneDrive - Computer Vision Center\MP\Curs2020-21\Repositori\Practica\Segona entrega\0. C++ Code\Logic Game\Scrabble\Player.cpp(135,31): warning C4244: 'inicializando': conversión de 'float' a 'int'; posible pérdida de datos
+  PlayerTile.cpp
+C:\Users\1002245\OneDrive - Computer Vision Center\MP\Curs2020-21\Repositori\Practica\Segona entrega\0. C++ Code\Logic Game\Scrabble\Scrabble.h(17,45): warning C4244: 'inicializando': conversión de 'double' a 'int'; posible pérdida de datos
+  ScrabbleGame.cpp
+C:\Users\1002245\OneDrive - Computer Vision Center\MP\Curs2020-21\Repositori\Practica\Segona entrega\0. C++ Code\Logic Game\Scrabble\Scrabble.h(17,45): warning C4244: 'inicializando': conversión de 'double' a 'int'; posible pérdida de datos
+C:\Users\1002245\OneDrive - Computer Vision Center\MP\Curs2020-21\Repositori\Practica\Segona entrega\0. C++ Code\Logic Game\Scrabble\Player.h(22,49): warning C4244: 'inicializando': conversión de 'double' a 'int'; posible pérdida de datos
+C:\Users\1002245\OneDrive - Computer Vision Center\MP\Curs2020-21\Repositori\Practica\Segona entrega\0. C++ Code\Logic Game\Scrabble\ScrabbleGame.cpp(23,84): warning C4244: 'argumento': conversión de 'double' a 'int'; posible pérdida de datos
+C:\Users\1002245\OneDrive - Computer Vision Center\MP\Curs2020-21\Repositori\Practica\Segona entrega\0. C++ Code\Logic Game\Scrabble\ScrabbleGame.cpp(28,64): warning C4244: 'argumento': conversión de 'double' a 'int'; posible pérdida de datos
+C:\Users\1002245\OneDrive - Computer Vision Center\MP\Curs2020-21\Repositori\Practica\Segona entrega\0. C++ Code\Logic Game\Scrabble\ScrabbleGame.cpp(33,36): warning C4244: 'argumento': conversión de 'double' a 'int'; posible pérdida de datos
+C:\Users\1002245\OneDrive - Computer Vision Center\MP\Curs2020-21\Repositori\Practica\Segona entrega\0. C++ Code\Logic Game\Scrabble\ScrabbleGame.cpp(38,36): warning C4244: 'argumento': conversión de 'double' a 'int'; posible pérdida de datos
+C:\Users\1002245\OneDrive - Computer Vision Center\MP\Curs2020-21\Repositori\Practica\Segona entrega\0. C++ Code\Logic Game\Scrabble\ScrabbleGame.cpp(120,140): warning C4305: 'argumento': truncamiento de 'double' a 'float'
+C:\Users\1002245\OneDrive - Computer Vision Center\MP\Curs2020-21\Repositori\Practica\Segona entrega\0. C++ Code\Logic Game\Scrabble\ScrabbleGame.cpp(121,22): warning C4244: 'inicializando': conversión de 'float' a 'int'; posible pérdida de datos
+C:\Users\1002245\OneDrive - Computer Vision Center\MP\Curs2020-21\Repositori\Practica\Segona entrega\0. C++ Code\Logic Game\Scrabble\ScrabbleGame.cpp(122,119): warning C4305: 'argumento': truncamiento de 'double' a 'float'
+C:\Users\1002245\OneDrive - Computer Vision Center\MP\Curs2020-21\Repositori\Practica\Segona entrega\0. C++ Code\Logic Game\Scrabble\ScrabbleGame.cpp(123,96): warning C4305: 'argumento': truncamiento de 'double' a 'float'
+C:\Users\1002245\OneDrive - Computer Vision Center\MP\Curs2020-21\Repositori\Practica\Segona entrega\0. C++ Code\Logic Game\Scrabble\ScrabbleGame.cpp(123,58): warning C4244: 'argumento': conversión de 'int' a 'float'; posible pérdida de datos
+C:\Users\1002245\OneDrive - Computer Vision Center\MP\Curs2020-21\Repositori\Practica\Segona entrega\0. C++ Code\Logic Game\Scrabble\ScrabbleGame.cpp(124,96): warning C4305: 'argumento': truncamiento de 'double' a 'float'
+C:\Users\1002245\OneDrive - Computer Vision Center\MP\Curs2020-21\Repositori\Practica\Segona entrega\0. C++ Code\Logic Game\Scrabble\ScrabbleGame.cpp(124,60): warning C4244: 'argumento': conversión de 'int' a 'float'; posible pérdida de datos
+C:\Users\1002245\OneDrive - Computer Vision Center\MP\Curs2020-21\Repositori\Practica\Segona entrega\0. C++ Code\Logic Game\Scrabble\ScrabbleGame.cpp(130,101): warning C4305: 'argumento': truncamiento de 'double' a 'float'
+C:\Users\1002245\OneDrive - Computer Vision Center\MP\Curs2020-21\Repositori\Practica\Segona entrega\0. C++ Code\Logic Game\Scrabble\ScrabbleGame.cpp(130,87): warning C4244: 'argumento': conversión de 'int' a 'float'; posible pérdida de datos
+C:\Users\1002245\OneDrive - Computer Vision Center\MP\Curs2020-21\Repositori\Practica\Segona entrega\0. C++ Code\Logic Game\Scrabble\ScrabbleGame.cpp(131,23): warning C4244: '+=': conversión de 'float' a 'int'; posible pérdida de datos
+C:\Users\1002245\OneDrive - Computer Vision Center\MP\Curs2020-21\Repositori\Practica\Segona entrega\0. C++ Code\Logic Game\Scrabble\ScrabbleGame.cpp(136,93): warning C4305: 'argumento': truncamiento de 'double' a 'float'
+C:\Users\1002245\OneDrive - Computer Vision Center\MP\Curs2020-21\Repositori\Practica\Segona entrega\0. C++ Code\Logic Game\Scrabble\ScrabbleGame.cpp(136,79): warning C4244: 'argumento': conversión de 'int' a 'float'; posible pérdida de datos
+  Generando código...
+  Compilando...
+  Tile.cpp
+  WordFinder.cpp
+C:\Users\1002245\OneDrive - Computer Vision Center\MP\Curs2020-21\Repositori\Practica\Segona entrega\0. C++ Code\Logic Game\Scrabble\Scrabble.h(17,45): warning C4244: 'inicializando': conversión de 'double' a 'int'; posible pérdida de datos
+C:\Users\1002245\OneDrive - Computer Vision Center\MP\Curs2020-21\Repositori\Practica\Segona entrega\0. C++ Code\Logic Game\Scrabble\WordFinder.cpp(19,34): warning C4018: '<': no coinciden signed/unsigned
+  Generando código...
+  SDL_FontCache.c
+C:\Users\1002245\OneDrive - Computer Vision Center\MP\Curs2020-21\Repositori\Practica\Segona entrega\0. C++ Code\Graphic Lib\NFont\SDL_FontCache.c(234,1): warning C4244: 'inicializando': conversión de 'float' a 'int'; posible pérdida de datos
+C:\Users\1002245\OneDrive - Computer Vision Center\MP\Curs2020-21\Repositori\Practica\Segona entrega\0. C++ Code\Graphic Lib\NFont\SDL_FontCache.c(614,25): warning C4244: '=': conversión de 'int' a 'float'; posible pérdida de datos
+C:\Users\1002245\OneDrive - Computer Vision Center\MP\Curs2020-21\Repositori\Practica\Segona entrega\0. C++ Code\Graphic Lib\NFont\SDL_FontCache.c(615,25): warning C4244: '=': conversión de 'int' a 'float'; posible pérdida de datos
+C:\Users\1002245\OneDrive - Computer Vision Center\MP\Curs2020-21\Repositori\Practica\Segona entrega\0. C++ Code\Graphic Lib\NFont\SDL_FontCache.c(616,34): warning C4244: '=': conversión de 'int' a 'float'; posible pérdida de datos
+C:\Users\1002245\OneDrive - Computer Vision Center\MP\Curs2020-21\Repositori\Practica\Segona entrega\0. C++ Code\Graphic Lib\NFont\SDL_FontCache.c(617,34): warning C4244: '=': conversión de 'int' a 'float'; posible pérdida de datos
+C:\Users\1002245\OneDrive - Computer Vision Center\MP\Curs2020-21\Repositori\Practica\Segona entrega\0. C++ Code\Graphic Lib\NFont\SDL_FontCache.c(619,1): warning C4244: 'inicializando': conversión de 'float' a 'int'; posible pérdida de datos
+C:\Users\1002245\OneDrive - Computer Vision Center\MP\Curs2020-21\Repositori\Practica\Segona entrega\0. C++ Code\Graphic Lib\NFont\SDL_FontCache.c(631,12): warning C4244: '=': conversión de 'int' a 'float'; posible pérdida de datos
+C:\Users\1002245\OneDrive - Computer Vision Center\MP\Curs2020-21\Repositori\Practica\Segona entrega\0. C++ Code\Graphic Lib\NFont\SDL_FontCache.c(633,12): warning C4244: '=': conversión de 'int' a 'float'; posible pérdida de datos
+C:\Users\1002245\OneDrive - Computer Vision Center\MP\Curs2020-21\Repositori\Practica\Segona entrega\0. C++ Code\Graphic Lib\NFont\SDL_FontCache.c(637,17): warning C4244: '=': conversión de 'float' a 'int'; posible pérdida de datos
+C:\Users\1002245\OneDrive - Computer Vision Center\MP\Curs2020-21\Repositori\Practica\Segona entrega\0. C++ Code\Graphic Lib\NFont\SDL_FontCache.c(640,46): warning C4244: '=': conversión de 'float' a 'int'; posible pérdida de datos
+C:\Users\1002245\OneDrive - Computer Vision Center\MP\Curs2020-21\Repositori\Practica\Segona entrega\0. C++ Code\Graphic Lib\NFont\SDL_FontCache.c(643,12): warning C4244: '=': conversión de 'int' a 'float'; posible pérdida de datos
+C:\Users\1002245\OneDrive - Computer Vision Center\MP\Curs2020-21\Repositori\Practica\Segona entrega\0. C++ Code\Graphic Lib\NFont\SDL_FontCache.c(645,12): warning C4244: '=': conversión de 'int' a 'float'; posible pérdida de datos
+C:\Users\1002245\OneDrive - Computer Vision Center\MP\Curs2020-21\Repositori\Practica\Segona entrega\0. C++ Code\Graphic Lib\NFont\SDL_FontCache.c(649,17): warning C4244: '=': conversión de 'float' a 'int'; posible pérdida de datos
+C:\Users\1002245\OneDrive - Computer Vision Center\MP\Curs2020-21\Repositori\Practica\Segona entrega\0. C++ Code\Graphic Lib\NFont\SDL_FontCache.c(652,46): warning C4244: '=': conversión de 'float' a 'int'; posible pérdida de datos
+C:\Users\1002245\OneDrive - Computer Vision Center\MP\Curs2020-21\Repositori\Practica\Segona entrega\0. C++ Code\Graphic Lib\NFont\SDL_FontCache.c(702,17): warning C4244: '=': conversión de 'float' a 'int'; posible pérdida de datos
+C:\Users\1002245\OneDrive - Computer Vision Center\MP\Curs2020-21\Repositori\Practica\Segona entrega\0. C++ Code\Graphic Lib\NFont\SDL_FontCache.c(703,17): warning C4244: '=': conversión de 'float' a 'int'; posible pérdida de datos
+C:\Users\1002245\OneDrive - Computer Vision Center\MP\Curs2020-21\Repositori\Practica\Segona entrega\0. C++ Code\Graphic Lib\NFont\SDL_FontCache.c(704,17): warning C4244: '=': conversión de 'float' a 'int'; posible pérdida de datos
+C:\Users\1002245\OneDrive - Computer Vision Center\MP\Curs2020-21\Repositori\Practica\Segona entrega\0. C++ Code\Graphic Lib\NFont\SDL_FontCache.c(705,17): warning C4244: '=': conversión de 'float' a 'int'; posible pérdida de datos
+C:\Users\1002245\OneDrive - Computer Vision Center\MP\Curs2020-21\Repositori\Practica\Segona entrega\0. C++ Code\Graphic Lib\NFont\SDL_FontCache.c(1558,29): warning C4244: '=': conversión de 'int' a 'float'; posible pérdida de datos
+C:\Users\1002245\OneDrive - Computer Vision Center\MP\Curs2020-21\Repositori\Practica\Segona entrega\0. C++ Code\Graphic Lib\NFont\SDL_FontCache.c(1552,1): warning C4244: 'inicializando': conversión de 'float' a 'int'; posible pérdida de datos
+C:\Users\1002245\OneDrive - Computer Vision Center\MP\Curs2020-21\Repositori\Practica\Segona entrega\0. C++ Code\Graphic Lib\NFont\SDL_FontCache.c(1835,41): warning C4244: 'función': conversión de 'int' a 'float'; posible pérdida de datos
+C:\Users\1002245\OneDrive - Computer Vision Center\MP\Curs2020-21\Repositori\Practica\Segona entrega\0. C++ Code\Graphic Lib\NFont\SDL_FontCache.c(1835,44): warning C4244: 'función': conversión de 'int' a 'float'; posible pérdida de datos
+C:\Users\1002245\OneDrive - Computer Vision Center\MP\Curs2020-21\Repositori\Practica\Segona entrega\0. C++ Code\Graphic Lib\NFont\SDL_FontCache.c(1848,33): warning C4244: 'función': conversión de 'int' a 'float'; posible pérdida de datos
+C:\Users\1002245\OneDrive - Computer Vision Center\MP\Curs2020-21\Repositori\Practica\Segona entrega\0. C++ Code\Graphic Lib\NFont\SDL_FontCache.c(1848,40): warning C4244: 'función': conversión de 'int' a 'float'; posible pérdida de datos
+C:\Users\1002245\OneDrive - Computer Vision Center\MP\Curs2020-21\Repositori\Practica\Segona entrega\0. C++ Code\Graphic Lib\NFont\SDL_FontCache.c(1880,33): warning C4244: 'función': conversión de 'int' a 'float'; posible pérdida de datos
+C:\Users\1002245\OneDrive - Computer Vision Center\MP\Curs2020-21\Repositori\Practica\Segona entrega\0. C++ Code\Graphic Lib\NFont\SDL_FontCache.c(1880,40): warning C4244: 'función': conversión de 'int' a 'float'; posible pérdida de datos
+C:\Users\1002245\OneDrive - Computer Vision Center\MP\Curs2020-21\Repositori\Practica\Segona entrega\0. C++ Code\Graphic Lib\NFont\SDL_FontCache.c(1911,33): warning C4244: 'función': conversión de 'int' a 'float'; posible pérdida de datos
+C:\Users\1002245\OneDrive - Computer Vision Center\MP\Curs2020-21\Repositori\Practica\Segona entrega\0. C++ Code\Graphic Lib\NFont\SDL_FontCache.c(1911,40): warning C4244: 'función': conversión de 'int' a 'float'; posible pérdida de datos
+C:\Users\1002245\OneDrive - Computer Vision Center\MP\Curs2020-21\Repositori\Practica\Segona entrega\0. C++ Code\Graphic Lib\NFont\SDL_FontCache.c(1942,33): warning C4244: 'función': conversión de 'int' a 'float'; posible pérdida de datos
+C:\Users\1002245\OneDrive - Computer Vision Center\MP\Curs2020-21\Repositori\Practica\Segona entrega\0. C++ Code\Graphic Lib\NFont\SDL_FontCache.c(1942,40): warning C4244: 'función': conversión de 'int' a 'float'; posible pérdida de datos
+C:\Users\1002245\OneDrive - Computer Vision Center\MP\Curs2020-21\Repositori\Practica\Segona entrega\0. C++ Code\Graphic Lib\NFont\SDL_FontCache.c(1973,33): warning C4244: 'función': conversión de 'int' a 'float'; posible pérdida de datos
+C:\Users\1002245\OneDrive - Computer Vision Center\MP\Curs2020-21\Repositori\Practica\Segona entrega\0. C++ Code\Graphic Lib\NFont\SDL_FontCache.c(1973,40): warning C4244: 'función': conversión de 'int' a 'float'; posible pérdida de datos
+C:\Users\1002245\OneDrive - Computer Vision Center\MP\Curs2020-21\Repositori\Practica\Segona entrega\0. C++ Code\Graphic Lib\NFont\SDL_FontCache.c(2014,29): warning C4244: 'función': conversión de 'int' a 'float'; posible pérdida de datos
+C:\Users\1002245\OneDrive - Computer Vision Center\MP\Curs2020-21\Repositori\Practica\Segona entrega\0. C++ Code\Graphic Lib\NFont\SDL_FontCache.c(2014,36): warning C4244: 'función': conversión de 'int' a 'float'; posible pérdida de datos
+C:\Users\1002245\OneDrive - Computer Vision Center\MP\Curs2020-21\Repositori\Practica\Segona entrega\0. C++ Code\Graphic Lib\NFont\SDL_FontCache.c(2014,57): warning C4244: 'función': conversión de 'int' a 'float'; posible pérdida de datos
+C:\Users\1002245\OneDrive - Computer Vision Center\MP\Curs2020-21\Repositori\Practica\Segona entrega\0. C++ Code\Graphic Lib\NFont\SDL_FontCache.c(2002,1): warning C4244: 'inicializando': conversión de 'float' a 'int'; posible pérdida de datos
+C:\Users\1002245\OneDrive - Computer Vision Center\MP\Curs2020-21\Repositori\Practica\Segona entrega\0. C++ Code\Graphic Lib\NFont\SDL_FontCache.c(2043,29): warning C4244: 'función': conversión de 'int' a 'float'; posible pérdida de datos
+C:\Users\1002245\OneDrive - Computer Vision Center\MP\Curs2020-21\Repositori\Practica\Segona entrega\0. C++ Code\Graphic Lib\NFont\SDL_FontCache.c(2043,36): warning C4244: 'función': conversión de 'int' a 'float'; posible pérdida de datos
+C:\Users\1002245\OneDrive - Computer Vision Center\MP\Curs2020-21\Repositori\Practica\Segona entrega\0. C++ Code\Graphic Lib\NFont\SDL_FontCache.c(2043,57): warning C4244: 'función': conversión de 'int' a 'float'; posible pérdida de datos
+C:\Users\1002245\OneDrive - Computer Vision Center\MP\Curs2020-21\Repositori\Practica\Segona entrega\0. C++ Code\Graphic Lib\NFont\SDL_FontCache.c(2019,1): warning C4244: 'inicializando': conversión de 'float' a 'int'; posible pérdida de datos
+C:\Users\1002245\OneDrive - Computer Vision Center\MP\Curs2020-21\Repositori\Practica\Segona entrega\0. C++ Code\Graphic Lib\NFont\SDL_FontCache.c(2060,29): warning C4244: 'función': conversión de 'int' a 'float'; posible pérdida de datos
+C:\Users\1002245\OneDrive - Computer Vision Center\MP\Curs2020-21\Repositori\Practica\Segona entrega\0. C++ Code\Graphic Lib\NFont\SDL_FontCache.c(2060,36): warning C4244: 'función': conversión de 'int' a 'float'; posible pérdida de datos
+C:\Users\1002245\OneDrive - Computer Vision Center\MP\Curs2020-21\Repositori\Practica\Segona entrega\0. C++ Code\Graphic Lib\NFont\SDL_FontCache.c(2060,57): warning C4244: 'función': conversión de 'int' a 'float'; posible pérdida de datos
+C:\Users\1002245\OneDrive - Computer Vision Center\MP\Curs2020-21\Repositori\Practica\Segona entrega\0. C++ Code\Graphic Lib\NFont\SDL_FontCache.c(2048,1): warning C4244: 'inicializando': conversión de 'float' a 'int'; posible pérdida de datos
+C:\Users\1002245\OneDrive - Computer Vision Center\MP\Curs2020-21\Repositori\Practica\Segona entrega\0. C++ Code\Graphic Lib\NFont\SDL_FontCache.c(2077,29): warning C4244: 'función': conversión de 'int' a 'float'; posible pérdida de datos
+C:\Users\1002245\OneDrive - Computer Vision Center\MP\Curs2020-21\Repositori\Practica\Segona entrega\0. C++ Code\Graphic Lib\NFont\SDL_FontCache.c(2077,36): warning C4244: 'función': conversión de 'int' a 'float'; posible pérdida de datos
+C:\Users\1002245\OneDrive - Computer Vision Center\MP\Curs2020-21\Repositori\Practica\Segona entrega\0. C++ Code\Graphic Lib\NFont\SDL_FontCache.c(2077,57): warning C4244: 'función': conversión de 'int' a 'float'; posible pérdida de datos
+C:\Users\1002245\OneDrive - Computer Vision Center\MP\Curs2020-21\Repositori\Practica\Segona entrega\0. C++ Code\Graphic Lib\NFont\SDL_FontCache.c(2065,1): warning C4244: 'inicializando': conversión de 'float' a 'int'; posible pérdida de datos
+C:\Users\1002245\OneDrive - Computer Vision Center\MP\Curs2020-21\Repositori\Practica\Segona entrega\0. C++ Code\Graphic Lib\NFont\SDL_FontCache.c(2106,29): warning C4244: 'función': conversión de 'int' a 'float'; posible pérdida de datos
+C:\Users\1002245\OneDrive - Computer Vision Center\MP\Curs2020-21\Repositori\Practica\Segona entrega\0. C++ Code\Graphic Lib\NFont\SDL_FontCache.c(2106,36): warning C4244: 'función': conversión de 'int' a 'float'; posible pérdida de datos
+C:\Users\1002245\OneDrive - Computer Vision Center\MP\Curs2020-21\Repositori\Practica\Segona entrega\0. C++ Code\Graphic Lib\NFont\SDL_FontCache.c(2106,57): warning C4244: 'función': conversión de 'int' a 'float'; posible pérdida de datos
+C:\Users\1002245\OneDrive - Computer Vision Center\MP\Curs2020-21\Repositori\Practica\Segona entrega\0. C++ Code\Graphic Lib\NFont\SDL_FontCache.c(2082,1): warning C4244: 'inicializando': conversión de 'float' a 'int'; posible pérdida de datos
+C:\Users\1002245\OneDrive - Computer Vision Center\MP\Curs2020-21\Repositori\Practica\Segona entrega\0. C++ Code\Graphic Lib\NFont\SDL_FontCache.c(2111,1): warning C4244: 'inicializando': conversión de 'float' a 'int'; posible pérdida de datos
+C:\Users\1002245\OneDrive - Computer Vision Center\MP\Curs2020-21\Repositori\Practica\Segona entrega\0. C++ Code\Graphic Lib\NFont\SDL_FontCache.c(2144,1): warning C4244: 'inicializando': conversión de 'float' a 'int'; posible pérdida de datos
+C:\Users\1002245\OneDrive - Computer Vision Center\MP\Curs2020-21\Repositori\Practica\Segona entrega\0. C++ Code\Graphic Lib\NFont\SDL_FontCache.c(2546,60): warning C4244: '=': conversión de 'float' a 'int'; posible pérdida de datos
+C:\Users\1002245\OneDrive - Computer Vision Center\MP\Curs2020-21\Repositori\Practica\Segona entrega\0. C++ Code\Graphic Lib\NFont\SDL_FontCache.c(2547,61): warning C4244: '=': conversión de 'float' a 'int'; posible pérdida de datos
+C:\Users\1002245\OneDrive - Computer Vision Center\MP\Curs2020-21\Repositori\Practica\Segona entrega\0. C++ Code\Graphic Lib\NFont\SDL_FontCache.c(2539,1): warning C4244: 'inicializando': conversión de 'float' a 'int'; posible pérdida de datos
+C:\Users\1002245\OneDrive - Computer Vision Center\MP\Curs2020-21\Repositori\Practica\Segona entrega\0. C++ Code\Graphic Lib\NFont\SDL_FontCache.c(2596,57): warning C4244: 'función': conversión de 'int' a 'float'; posible pérdida de datos
+C:\Users\1002245\OneDrive - Computer Vision Center\MP\Curs2020-21\Repositori\Practica\Segona entrega\0. C++ Code\Graphic Lib\NFont\SDL_FontCache.c(2596,68): warning C4244: 'función': conversión de 'int' a 'float'; posible pérdida de datos
+C:\Users\1002245\OneDrive - Computer Vision Center\MP\Curs2020-21\Repositori\Practica\Segona entrega\0. C++ Code\Graphic Lib\NFont\SDL_FontCache.c(2596,87): warning C4244: 'función': conversión de 'int' a 'float'; posible pérdida de datos
+C:\Users\1002245\OneDrive - Computer Vision Center\MP\Curs2020-21\Repositori\Practica\Segona entrega\0. C++ Code\Graphic Lib\NFont\SDL_FontCache.c(2596,106): warning C4244: 'función': conversión de 'int' a 'float'; posible pérdida de datos
   MP_Practica.vcxproj -> C:\Users\1002245\OneDrive - Computer Vision Center\MP\Curs2020-21\Repositori\Practica\Segona entrega\2. Platforms\0. Windows Desktop\Program\MP_Practica.exe
